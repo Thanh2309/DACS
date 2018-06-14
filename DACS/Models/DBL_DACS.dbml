@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DOANCOSO" Class="DBL_DACSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-ES5AT24\SQLEXPRESS;Initial Catalog=DOANCOSO;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DOANCOSOConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LUUSEAN\SQLEXPRESS;Initial Catalog=DOANCOSO;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DOANCOSOConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -11,6 +11,14 @@
       <Association Name="ACCOUNT_PHIEUDK_SV5T" Member="PHIEUDK_SV5Ts" ThisKey="USERNAME" OtherKey="USERNAME" Type="PHIEUDK_SV5T" />
       <Association Name="KHOA_ACCOUNT" Member="KHOA" ThisKey="MAKHOA" OtherKey="MAKHOA" Type="KHOA" IsForeignKey="true" />
       <Association Name="LOAIACCOUNT_ACCOUNT" Member="LOAIACCOUNT" ThisKey="MALOAI" OtherKey="MALOAI" Type="LOAIACCOUNT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TIEUCHI_SV5T" Member="TIEUCHI_SV5Ts">
+    <Type Name="TIEUCHI_SV5T">
+      <Column Name="MATC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENTC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TIEUCHI_SV5T_CHITIET_TC" Member="CHITIET_TCs" ThisKey="MATC" OtherKey="MATC" Type="CHITIET_TC" />
     </Type>
   </Table>
   <Table Name="dbo.CAP_SV5T" Member="CAP_SV5Ts">
@@ -122,14 +130,6 @@
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Association Name="CAP_SV5T_PHIEUDK_SV5T" Member="CAP_SV5T" ThisKey="MACAP" OtherKey="MACAP" Type="CAP_SV5T" IsForeignKey="true" />
       <Association Name="ACCOUNT_PHIEUDK_SV5T" Member="ACCOUNT" ThisKey="USERNAME" OtherKey="USERNAME" Type="ACCOUNT" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TIEUCHI_SV5T" Member="TIEUCHI_SV5Ts">
-    <Type Name="TIEUCHI_SV5T">
-      <Column Name="MATC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENTC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="TIEUCHI_SV5T_CHITIET_TC" Member="CHITIET_TCs" ThisKey="MATC" OtherKey="MATC" Type="CHITIET_TC" />
     </Type>
   </Table>
 </Database>

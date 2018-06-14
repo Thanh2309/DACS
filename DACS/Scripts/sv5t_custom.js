@@ -69,11 +69,10 @@
     layTinhNguyen1();
     function layTinhNguyen1() {
         $.ajax({
-            url: 'lay_tinh_nguyen1',
+            url: 'lay_tc_tinh_nguyen1',
             method: 'POST',
-            sucess: function (data) {
-                //$("#tn2_title").html(data);
-                console.log(data);
+            success: function (data) {
+                $("#tn1_title").html(data);
             }
         });
     }
@@ -81,24 +80,36 @@
     layTinhNguyen2();
     function layTinhNguyen2() {
         $.ajax({
-            url: 'lay_tinh_nguyen2',
+            url: 'lay_tc_tinh_nguyen2',
             method: 'POST',
-            sucess: function (data) {
+            success: function (data) {
                 $("#tn2_title").html(data);
             }
         });
     }
 
-    layHoiNhap();
-    function layHoiNhap() {
+    layHoiNhap1();
+    function layHoiNhap1() {
         $.ajax({
-            url: 'lay_hoi_nhap',
+            url: 'lay_tc_hoi_nhap1',
             method: 'POST',
-            sucess: function (data) { 
-                $("#hn_title").html(data);
+            success: function (data) {
+                $("#hn1_title").html(data);
             }
         });
     }
+
+    layHoiNhap2();
+    function layHoiNhap2() {
+        $.ajax({
+            url: 'lay_tc_hoi_nhap2',
+            method: 'POST',
+            success: function (data) {
+                $("#hn2_title").html(data);
+            }
+        });
+    }
+
     //layCheckBox();
     //function layCheckBox() {
     //    $.ajax({

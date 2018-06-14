@@ -33,6 +33,9 @@ namespace DACS.Models
     partial void InsertACCOUNT(ACCOUNT instance);
     partial void UpdateACCOUNT(ACCOUNT instance);
     partial void DeleteACCOUNT(ACCOUNT instance);
+    partial void InsertTIEUCHI_SV5T(TIEUCHI_SV5T instance);
+    partial void UpdateTIEUCHI_SV5T(TIEUCHI_SV5T instance);
+    partial void DeleteTIEUCHI_SV5T(TIEUCHI_SV5T instance);
     partial void InsertCAP_SV5T(CAP_SV5T instance);
     partial void UpdateCAP_SV5T(CAP_SV5T instance);
     partial void DeleteCAP_SV5T(CAP_SV5T instance);
@@ -57,9 +60,6 @@ namespace DACS.Models
     partial void InsertPHIEUDK_SV5T(PHIEUDK_SV5T instance);
     partial void UpdatePHIEUDK_SV5T(PHIEUDK_SV5T instance);
     partial void DeletePHIEUDK_SV5T(PHIEUDK_SV5T instance);
-    partial void InsertTIEUCHI_SV5T(TIEUCHI_SV5T instance);
-    partial void UpdateTIEUCHI_SV5T(TIEUCHI_SV5T instance);
-    partial void DeleteTIEUCHI_SV5T(TIEUCHI_SV5T instance);
     #endregion
 		
 		public DBL_DACSDataContext() : 
@@ -97,6 +97,14 @@ namespace DACS.Models
 			get
 			{
 				return this.GetTable<ACCOUNT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TIEUCHI_SV5T> TIEUCHI_SV5Ts
+		{
+			get
+			{
+				return this.GetTable<TIEUCHI_SV5T>();
 			}
 		}
 		
@@ -161,14 +169,6 @@ namespace DACS.Models
 			get
 			{
 				return this.GetTable<PHIEUDK_SV5T>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TIEUCHI_SV5T> TIEUCHI_SV5Ts
-		{
-			get
-			{
-				return this.GetTable<TIEUCHI_SV5T>();
 			}
 		}
 	}
@@ -466,6 +466,144 @@ namespace DACS.Models
 		{
 			this.SendPropertyChanging();
 			entity.ACCOUNT = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIEUCHI_SV5T")]
+	public partial class TIEUCHI_SV5T : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MATC;
+		
+		private string _TENTC;
+		
+		private System.Nullable<int> _SOLUONG;
+		
+		private EntitySet<CHITIET_TC> _CHITIET_TCs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMATCChanging(string value);
+    partial void OnMATCChanged();
+    partial void OnTENTCChanging(string value);
+    partial void OnTENTCChanged();
+    partial void OnSOLUONGChanging(System.Nullable<int> value);
+    partial void OnSOLUONGChanged();
+    #endregion
+		
+		public TIEUCHI_SV5T()
+		{
+			this._CHITIET_TCs = new EntitySet<CHITIET_TC>(new Action<CHITIET_TC>(this.attach_CHITIET_TCs), new Action<CHITIET_TC>(this.detach_CHITIET_TCs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATC", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MATC
+		{
+			get
+			{
+				return this._MATC;
+			}
+			set
+			{
+				if ((this._MATC != value))
+				{
+					this.OnMATCChanging(value);
+					this.SendPropertyChanging();
+					this._MATC = value;
+					this.SendPropertyChanged("MATC");
+					this.OnMATCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENTC", DbType="NVarChar(200)")]
+		public string TENTC
+		{
+			get
+			{
+				return this._TENTC;
+			}
+			set
+			{
+				if ((this._TENTC != value))
+				{
+					this.OnTENTCChanging(value);
+					this.SendPropertyChanging();
+					this._TENTC = value;
+					this.SendPropertyChanged("TENTC");
+					this.OnTENTCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOLUONG", DbType="Int")]
+		public System.Nullable<int> SOLUONG
+		{
+			get
+			{
+				return this._SOLUONG;
+			}
+			set
+			{
+				if ((this._SOLUONG != value))
+				{
+					this.OnSOLUONGChanging(value);
+					this.SendPropertyChanging();
+					this._SOLUONG = value;
+					this.SendPropertyChanged("SOLUONG");
+					this.OnSOLUONGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIEUCHI_SV5T_CHITIET_TC", Storage="_CHITIET_TCs", ThisKey="MATC", OtherKey="MATC")]
+		public EntitySet<CHITIET_TC> CHITIET_TCs
+		{
+			get
+			{
+				return this._CHITIET_TCs;
+			}
+			set
+			{
+				this._CHITIET_TCs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CHITIET_TCs(CHITIET_TC entity)
+		{
+			this.SendPropertyChanging();
+			entity.TIEUCHI_SV5T = this;
+		}
+		
+		private void detach_CHITIET_TCs(CHITIET_TC entity)
+		{
+			this.SendPropertyChanging();
+			entity.TIEUCHI_SV5T = null;
 		}
 	}
 	
@@ -2809,144 +2947,6 @@ namespace DACS.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TIEUCHI_SV5T")]
-	public partial class TIEUCHI_SV5T : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MATC;
-		
-		private string _TENTC;
-		
-		private System.Nullable<int> _SOLUONG;
-		
-		private EntitySet<CHITIET_TC> _CHITIET_TCs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMATCChanging(string value);
-    partial void OnMATCChanged();
-    partial void OnTENTCChanging(string value);
-    partial void OnTENTCChanged();
-    partial void OnSOLUONGChanging(System.Nullable<int> value);
-    partial void OnSOLUONGChanged();
-    #endregion
-		
-		public TIEUCHI_SV5T()
-		{
-			this._CHITIET_TCs = new EntitySet<CHITIET_TC>(new Action<CHITIET_TC>(this.attach_CHITIET_TCs), new Action<CHITIET_TC>(this.detach_CHITIET_TCs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATC", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MATC
-		{
-			get
-			{
-				return this._MATC;
-			}
-			set
-			{
-				if ((this._MATC != value))
-				{
-					this.OnMATCChanging(value);
-					this.SendPropertyChanging();
-					this._MATC = value;
-					this.SendPropertyChanged("MATC");
-					this.OnMATCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENTC", DbType="NVarChar(200)")]
-		public string TENTC
-		{
-			get
-			{
-				return this._TENTC;
-			}
-			set
-			{
-				if ((this._TENTC != value))
-				{
-					this.OnTENTCChanging(value);
-					this.SendPropertyChanging();
-					this._TENTC = value;
-					this.SendPropertyChanged("TENTC");
-					this.OnTENTCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOLUONG", DbType="Int")]
-		public System.Nullable<int> SOLUONG
-		{
-			get
-			{
-				return this._SOLUONG;
-			}
-			set
-			{
-				if ((this._SOLUONG != value))
-				{
-					this.OnSOLUONGChanging(value);
-					this.SendPropertyChanging();
-					this._SOLUONG = value;
-					this.SendPropertyChanged("SOLUONG");
-					this.OnSOLUONGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TIEUCHI_SV5T_CHITIET_TC", Storage="_CHITIET_TCs", ThisKey="MATC", OtherKey="MATC")]
-		public EntitySet<CHITIET_TC> CHITIET_TCs
-		{
-			get
-			{
-				return this._CHITIET_TCs;
-			}
-			set
-			{
-				this._CHITIET_TCs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CHITIET_TCs(CHITIET_TC entity)
-		{
-			this.SendPropertyChanging();
-			entity.TIEUCHI_SV5T = this;
-		}
-		
-		private void detach_CHITIET_TCs(CHITIET_TC entity)
-		{
-			this.SendPropertyChanging();
-			entity.TIEUCHI_SV5T = null;
 		}
 	}
 }

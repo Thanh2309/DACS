@@ -100,23 +100,30 @@ namespace DACS.Controllers
             var tl3 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "TL");
             return tl3.NOIDUNG_TC3;
         }
-        public string lay_tinh_nguyen1()
+        public string lay_tc_tinh_nguyen1()
         {
             var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "TN");
             return tn1.NOIDUNG_TC1;
         }
 
-        public string lay_tinh_nguyen2()
+        public string lay_tc_tinh_nguyen2()
         {
             var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "TN");
             return tn1.NOIDUNG_TC2;
         }
 
-        public string lay_hoi_nhap()
+        public string lay_tc_hoi_nhap1()
         {
             var hn = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "HN");
             return hn.NOIDUNG_TC1;
         }
+
+        public string lay_tc_hoi_nhap2()
+        {
+            var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "TN");
+            return tn1.NOIDUNG_TC2;
+        }
+
         //public bool? lay_check_box()
         //{
         //    var dd = data.KQDANHGIA_ACCOUNTs.SingleOrDefault(t => t.USERNAME == "TK_CNTT");
