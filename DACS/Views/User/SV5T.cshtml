@@ -1,0 +1,302 @@
+﻿@model IEnumerable<DACS.Models.CHITIET_TC>
+@{
+    ViewBag.Title = "SV5T";
+    Layout = "~/Views/Shared/Layout_User.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sinh Viên 5 Tốt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        text-align: center;
+        
+    }
+</style>
+<body>
+        <table class="table table-striped table-inverse table-hover" style="margin-top:78px;">
+            <tr>
+                <th rowspan="2" style="width:600px">NỘI DUNG</th>
+                <th colspan="3" style="width:450px">ĐÁNH GIÁ</th>
+                <th rowspan="2" style="width:200px">ĐẠT</th>
+            </tr>
+            <tr>
+                <th>Sinh Viên</th>
+                <th>Khoa / Viện</th>
+                <th>Phòng Ban</th>
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center;color:yellow; padding-left:5px">ĐẠO ĐỨC</th>
+                <th><input disabled="disabled" type="checkbox" id="test4" />
+                    <label for="test4"></label></th>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="dd_title"></td>
+                <td>
+                        <input type="checkbox" id="test1"  />
+                        <label for="test1"></label>
+                </td>
+                <td >
+                    <input disabled="disabled" type="checkbox" id="test2"  />
+                    <label for="test2"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test3"  />
+                    <label for="test3"></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="dd2_title"></td>
+                <td>
+                    <input type="checkbox" id="test50" />
+                    <label for="test50"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test51" />
+                    <label for="test51"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test52" />
+                    <label for="test52"></label>
+                </td>
+            </tr>
+
+            <tr>
+                <th colspan="4" style="text-align:center;color:yellow; padding-left:5px">HỌC TẬP</th>
+                <th>
+                    <input disabled="disabled" type="checkbox" id="test7"/>
+                    <label for="test7"></label>
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="ht_title"></td>
+                <td>
+                    <input type="checkbox" id="test5" />
+                    <label for="test5"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test6" />
+                    <label for="test6"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test7" />
+                    <label for="test7"></label>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center;color:yellow; padding-left:5px">THỂ LỰC</th>
+                <th>
+                    <input disabled="disabled" type="checkbox" id="test44"/>
+                    <label for="test44"></label>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center; padding-left:5px">Hoàn thành một trong ba tiêu chí sau:</th>
+            </tr>
+
+            <tr>
+                <td style="text-align:left" id="tl1_title"></td>
+                <td>
+                    <input type="checkbox" id="test8" />
+                    <label for="test8"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test9" />
+                    <label for="test9"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test10" />
+                    <label for="test10"></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="tl2_title"></td>
+                <td>
+                    <input type="checkbox" id="test11" />
+                    <label for="test11"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test12" />
+                    <label for="test12"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test13" />
+                    <label for="test13"></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="tl3_title"></td>
+                <td>
+                    <input type="checkbox" id="test14" />
+                    <label for="test14"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test15" />
+                    <label for="test15"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test16" />
+                    <label for="test16"></label>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center;color:yellow; padding-left:5px">TÌNH NGUYỆN</th>
+                <th>
+                    <input disabled="disabled" type="checkbox" id="test48"/>
+                    <label for="test48"></label>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center; padding-left:5px">Hoàn thành một trong hai tiêu chí sau:</th>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="tn_title"></td>
+                <td>
+                    <input type="checkbox" id="test17" />
+                    <label for="test17"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test18" />
+                    <label for="test18"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test19" />
+                    <label for="test19"></label>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="tn2_title"></td>
+                <td>
+                    <input type="checkbox" id="test20" />
+                    <label for="test20"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test21" />
+                    <label for="test21"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test22" />
+                    <label for="test22"></label>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center;color:yellow; padding-left:5px">HỘI NHẬP</th>
+                <th>
+                    <input disabled="disabled" type="checkbox" id="test46" />
+                    <label for="test46"></label>
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align:left" id="hn_title"></td>
+                <td>
+                    <input type="checkbox" id="test26" />
+                    <label for="test26"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test27" />
+                    <label for="test27"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test28" />
+                    <label for="test28"></label>
+                </td>            </tr>
+            <tr>
+                <td style="text-align:left">Đối với Sinh viên 5 tốt cấp TRƯỜNG: Đã hoàn thành chứng chỉ Tiếng Anh B1</td>
+                <td>
+                    <input type="checkbox" id="test29" />
+                    <label for="test29"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test30" />
+                    <label for="test30"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test31" />
+                    <label for="test31"></label>
+                </td>            </tr>
+            <tr>
+                <td style="text-align:left" id="hn_title">@*Tham gia 3 buổi hội thảo kỹ năng (hoặc 1 lớp kỹ năng do trường tổ chức)*@</td>
+                <td>
+                    <input type="checkbox" id="test32" />
+                    <label for="test32"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test33" />
+                    <label for="test33"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test34" />
+                    <label for="test34"></label>
+                </td>            
+            </tr>
+            <tr>
+                <th colspan="4" style="text-align:center;color:yellow; padding-left:5px">TIÊU CHÍ ƯU TIÊN</th>
+                <th>
+                    <input disabled="disabled" type="checkbox" id="test47" />
+                    <label for="test47"></label>
+                </th>
+            </tr>
+            <tr>
+                <td style="text-align:left">Là Đoàn viên ưu tú được Kết nạp Đảng</td>
+                <td>
+                    <input type="checkbox" id="test35" />
+                    <label for="test35"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test36" />
+                    <label for="test36"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test37" />
+                    <label for="test37"></label>
+                </td>            </tr>
+            <tr>
+                <td style="text-align:left">Tham gia Hiến máu tình nguyện</td>
+                <td>
+                    <input type="checkbox" id="test38" />
+                    <label for="test38"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test39" />
+                    <label for="test39"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test40" />
+                    <label for="test40"></label>
+                </td>            </tr>
+            <tr>
+                <td style="text-align:left">Được biểu dương khen thưởng</td>
+                <td>
+                    <input type="checkbox" id="test41"  />
+                    <label for="test41"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test42"  />
+                    <label for="test42"></label>
+                </td>
+                <td>
+                    <input disabled="disabled" type="checkbox" id="test43"  />
+                    <label for="test43"></label>
+                </td>            
+            </tr>     
+        </table>
+    <div style="background-color: black;height: 50px;">
+        <button type="submit" class="submitbutton btn btn-outline-danger">Submit</button>
+        <button type="button" class="backbutton btn btn-outline-secondary">Back</button>
+    </div>
+
+    <script src="~/Scripts/sv5t_custom.js"></script>
+
+</body>
+</html>
+<script src="~/Scripts/1.js"></script>
+<link href="~/css/style.css" rel="stylesheet" />
