@@ -109,7 +109,26 @@
             }
         });
     }
-
+    layHoiNhap3();
+    function layHoiNhap3() {
+        $.ajax({
+            url: 'lay_tc_hoi_nhap3',
+            method: 'POST',
+            success: function (data) {
+                $("#hn3_title").html(data);
+            }
+        });
+    }
+    layHoiNhap4();
+    function layHoiNhap4() {
+        $.ajax({
+            url: 'lay_tc_hoi_nhap4',
+            method: 'POST',
+            success: function (data) {
+                $("#hn4_title").html(data);
+            }
+        });
+    }
     //layCheckBox();
     //function layCheckBox() {
     //    $.ajax({

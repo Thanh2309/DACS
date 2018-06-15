@@ -106,8 +106,7 @@ Primary Key ([USERNAME])
 go
 
 Create table [KQDANHGIA_ACCOUNT]
-(
-	[STT] Integer NOT NULL,
+(	
 	[DIEMRL] Bit NULL,
 	[DIEMHOCTAP] Bit NULL,
 	[TEST_THELUC] Bit NULL,
@@ -119,15 +118,17 @@ Create table [KQDANHGIA_ACCOUNT]
 	[UT_HIENMAU] Bit NULL,
 	[UT_BIEUDUONG] Bit NULL,
 	[USERNAME] Varchar(15) NOT NULL,
-Primary Key ([STT])
+	[MaNguoiDanhGia] char(5) not null,
+	Primary Key ([USERNAME], [MaNguoiDanhGia])
 ) 
 go
 
-Create table [LOAIACCOUNT]
+
+Create table [NGUOIDANHGIA]
 (
-	[MALOAI] Char(5) NOT NULL,
-	[TENLOAI] Nvarchar(100) NULL,
-Primary Key ([MALOAI])
+	[MaNguoiDanhGia] Char(5) NOT NULL,
+	[TenLoai] Nvarchar(100) NULL,
+Primary Key ([MaNguoiDanhGia])
 ) 
 go
 
@@ -137,14 +138,6 @@ Create table [TIEUCHI_SV5T]
 	[TENTC] Nvarchar(200) NULL,
 	[SOLUONG] Integer NULL,
 Primary Key ([MATC])
-) 
-go
-
-Create table [KQ_TONGHOP]
-(
-	[STT] Integer NOT NULL,
-	[MACAP] Char(5) NOT NULL,
-Primary Key ([STT],[MACAP])
 ) 
 go
 
@@ -170,15 +163,13 @@ Alter table [LHTT] add  foreign key([MALOP]) references [LOP] ([MALOP])  on upda
 go
 Alter table [PHIEUDK_SV5T] add  foreign key([MACAP]) references [CAP_SV5T] ([MACAP])  on update no action on delete no action 
 go
-Alter table [KQ_TONGHOP] add  foreign key([MACAP]) references [CAP_SV5T] ([MACAP])  on update no action on delete no action 
-go
 Alter table [CHITIET_TC] add  foreign key([MACAP]) references [CAP_SV5T] ([MACAP])  on update no action on delete no action 
 go
 Alter table [KQDANHGIA_ACCOUNT] add  foreign key([USERNAME]) references [ACCOUNT] ([USERNAME])  on update no action on delete no action 
 go
-Alter table [PHIEUDK_SV5T] add  foreign key([USERNAME]) references [ACCOUNT] ([USERNAME])  on update no action on delete no action 
+Alter table [KQDANHGIA_ACCOUNT] add  foreign key([MaNguoiDanhGia]) references [NGUOIDANHGIA] ([MaNguoiDanhGia])  on update no action on delete no action 
 go
-Alter table [KQ_TONGHOP] add  foreign key([STT]) references [KQDANHGIA_ACCOUNT] ([STT])  on update no action on delete no action 
+Alter table [PHIEUDK_SV5T] add  foreign key([USERNAME]) references [ACCOUNT] ([USERNAME])  on update no action on delete no action 
 go
 Alter table [ACCOUNT] add  foreign key([MALOAI]) references [LOAIACCOUNT] ([MALOAI])  on update no action on delete no action 
 go

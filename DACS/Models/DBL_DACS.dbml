@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DOANCOSO" Class="DBL_DACSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=LUUSEAN\SQLEXPRESS;Initial Catalog=DOANCOSO;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DOANCOSOConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-ES5AT24\SQLEXPRESS;Initial Catalog=DOANCOSO;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DOANCOSOConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -10,7 +10,6 @@
       <Association Name="ACCOUNT_KQDANHGIA_ACCOUNT" Member="KQDANHGIA_ACCOUNTs" ThisKey="USERNAME" OtherKey="USERNAME" Type="KQDANHGIA_ACCOUNT" />
       <Association Name="ACCOUNT_PHIEUDK_SV5T" Member="PHIEUDK_SV5Ts" ThisKey="USERNAME" OtherKey="USERNAME" Type="PHIEUDK_SV5T" />
       <Association Name="KHOA_ACCOUNT" Member="KHOA" ThisKey="MAKHOA" OtherKey="MAKHOA" Type="KHOA" IsForeignKey="true" />
-      <Association Name="LOAIACCOUNT_ACCOUNT" Member="LOAIACCOUNT" ThisKey="MALOAI" OtherKey="MALOAI" Type="LOAIACCOUNT" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TIEUCHI_SV5T" Member="TIEUCHI_SV5Ts">
@@ -54,7 +53,6 @@
   </Table>
   <Table Name="dbo.KQDANHGIA_ACCOUNT" Member="KQDANHGIA_ACCOUNTs">
     <Type Name="KQDANHGIA_ACCOUNT">
-      <Column Name="STT" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DIEMRL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="DIEMHOCTAP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TEST_THELUC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
@@ -65,8 +63,10 @@
       <Column Name="UT_KETNAPDANG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="UT_HIENMAU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="UT_BIEUDUONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaNguoiDanhGia" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="ACCOUNT_KQDANHGIA_ACCOUNT" Member="ACCOUNT" ThisKey="USERNAME" OtherKey="USERNAME" Type="ACCOUNT" IsForeignKey="true" />
+      <Association Name="NGUOIDANHGIA_KQDANHGIA_ACCOUNT" Member="NGUOIDANHGIA" ThisKey="MaNguoiDanhGia" OtherKey="MaNguoiDanhGia" Type="NGUOIDANHGIA" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LHTT" Member="LHTTs">
@@ -76,13 +76,6 @@
       <Association Name="LOP_LHTT" Member="LOP" ThisKey="MALOP" OtherKey="MALOP" Type="LOP" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.LOAIACCOUNT" Member="LOAIACCOUNTs">
-    <Type Name="LOAIACCOUNT">
-      <Column Name="MALOAI" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TENLOAI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="LOAIACCOUNT_ACCOUNT" Member="ACCOUNTs" ThisKey="MALOAI" OtherKey="MALOAI" Type="ACCOUNT" />
-    </Type>
-  </Table>
   <Table Name="dbo.LOP" Member="LOPs">
     <Type Name="LOP">
       <Column Name="MALOP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -90,6 +83,13 @@
       <Column Name="SOLUONG_SV" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="LOP_LHTT" Member="LHTTs" ThisKey="MALOP" OtherKey="MALOP" Type="LHTT" />
       <Association Name="KHOA_LOP" Member="KHOA" ThisKey="MAKHOA" OtherKey="MAKHOA" Type="KHOA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NGUOIDANHGIA" Member="NGUOIDANHGIAs">
+    <Type Name="NGUOIDANHGIA">
+      <Column Name="MaNguoiDanhGia" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="NGUOIDANHGIA_KQDANHGIA_ACCOUNT" Member="KQDANHGIA_ACCOUNTs" ThisKey="MaNguoiDanhGia" OtherKey="MaNguoiDanhGia" Type="KQDANHGIA_ACCOUNT" />
     </Type>
   </Table>
   <Table Name="dbo.PHIEUDK_SV5T" Member="PHIEUDK_SV5Ts">

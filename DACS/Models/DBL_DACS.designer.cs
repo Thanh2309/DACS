@@ -51,19 +51,19 @@ namespace DACS.Models
     partial void InsertLHTT(LHTT instance);
     partial void UpdateLHTT(LHTT instance);
     partial void DeleteLHTT(LHTT instance);
-    partial void InsertLOAIACCOUNT(LOAIACCOUNT instance);
-    partial void UpdateLOAIACCOUNT(LOAIACCOUNT instance);
-    partial void DeleteLOAIACCOUNT(LOAIACCOUNT instance);
     partial void InsertLOP(LOP instance);
     partial void UpdateLOP(LOP instance);
     partial void DeleteLOP(LOP instance);
+    partial void InsertNGUOIDANHGIA(NGUOIDANHGIA instance);
+    partial void UpdateNGUOIDANHGIA(NGUOIDANHGIA instance);
+    partial void DeleteNGUOIDANHGIA(NGUOIDANHGIA instance);
     partial void InsertPHIEUDK_SV5T(PHIEUDK_SV5T instance);
     partial void UpdatePHIEUDK_SV5T(PHIEUDK_SV5T instance);
     partial void DeletePHIEUDK_SV5T(PHIEUDK_SV5T instance);
     #endregion
 		
 		public DBL_DACSDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -148,19 +148,19 @@ namespace DACS.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<LOAIACCOUNT> LOAIACCOUNTs
-		{
-			get
-			{
-				return this.GetTable<LOAIACCOUNT>();
-			}
-		}
-		
 		public System.Data.Linq.Table<LOP> LOPs
 		{
 			get
 			{
 				return this.GetTable<LOP>();
+			}
+		}
+		
+		public System.Data.Linq.Table<NGUOIDANHGIA> NGUOIDANHGIAs
+		{
+			get
+			{
+				return this.GetTable<NGUOIDANHGIA>();
 			}
 		}
 		
@@ -195,8 +195,6 @@ namespace DACS.Models
 		
 		private EntityRef<KHOA> _KHOA;
 		
-		private EntityRef<LOAIACCOUNT> _LOAIACCOUNT;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -218,7 +216,6 @@ namespace DACS.Models
 			this._KQDANHGIA_ACCOUNTs = new EntitySet<KQDANHGIA_ACCOUNT>(new Action<KQDANHGIA_ACCOUNT>(this.attach_KQDANHGIA_ACCOUNTs), new Action<KQDANHGIA_ACCOUNT>(this.detach_KQDANHGIA_ACCOUNTs));
 			this._PHIEUDK_SV5Ts = new EntitySet<PHIEUDK_SV5T>(new Action<PHIEUDK_SV5T>(this.attach_PHIEUDK_SV5Ts), new Action<PHIEUDK_SV5T>(this.detach_PHIEUDK_SV5Ts));
 			this._KHOA = default(EntityRef<KHOA>);
-			this._LOAIACCOUNT = default(EntityRef<LOAIACCOUNT>);
 			OnCreated();
 		}
 		
@@ -297,10 +294,6 @@ namespace DACS.Models
 			{
 				if ((this._MALOAI != value))
 				{
-					if (this._LOAIACCOUNT.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMALOAIChanging(value);
 					this.SendPropertyChanging();
 					this._MALOAI = value;
@@ -386,40 +379,6 @@ namespace DACS.Models
 						this._MAKHOA = default(string);
 					}
 					this.SendPropertyChanged("KHOA");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIACCOUNT_ACCOUNT", Storage="_LOAIACCOUNT", ThisKey="MALOAI", OtherKey="MALOAI", IsForeignKey=true)]
-		public LOAIACCOUNT LOAIACCOUNT
-		{
-			get
-			{
-				return this._LOAIACCOUNT.Entity;
-			}
-			set
-			{
-				LOAIACCOUNT previousValue = this._LOAIACCOUNT.Entity;
-				if (((previousValue != value) 
-							|| (this._LOAIACCOUNT.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LOAIACCOUNT.Entity = null;
-						previousValue.ACCOUNTs.Remove(this);
-					}
-					this._LOAIACCOUNT.Entity = value;
-					if ((value != null))
-					{
-						value.ACCOUNTs.Add(this);
-						this._MALOAI = value.MALOAI;
-					}
-					else
-					{
-						this._MALOAI = default(string);
-					}
-					this.SendPropertyChanged("LOAIACCOUNT");
 				}
 			}
 		}
@@ -1233,8 +1192,6 @@ namespace DACS.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _STT;
-		
 		private System.Nullable<bool> _DIEMRL;
 		
 		private System.Nullable<bool> _DIEMHOCTAP;
@@ -1257,14 +1214,16 @@ namespace DACS.Models
 		
 		private string _USERNAME;
 		
+		private string _MaNguoiDanhGia;
+		
 		private EntityRef<ACCOUNT> _ACCOUNT;
+		
+		private EntityRef<NGUOIDANHGIA> _NGUOIDANHGIA;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSTTChanging(int value);
-    partial void OnSTTChanged();
     partial void OnDIEMRLChanging(System.Nullable<bool> value);
     partial void OnDIEMRLChanged();
     partial void OnDIEMHOCTAPChanging(System.Nullable<bool> value);
@@ -1287,32 +1246,15 @@ namespace DACS.Models
     partial void OnUT_BIEUDUONGChanged();
     partial void OnUSERNAMEChanging(string value);
     partial void OnUSERNAMEChanged();
+    partial void OnMaNguoiDanhGiaChanging(string value);
+    partial void OnMaNguoiDanhGiaChanged();
     #endregion
 		
 		public KQDANHGIA_ACCOUNT()
 		{
 			this._ACCOUNT = default(EntityRef<ACCOUNT>);
+			this._NGUOIDANHGIA = default(EntityRef<NGUOIDANHGIA>);
 			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STT", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int STT
-		{
-			get
-			{
-				return this._STT;
-			}
-			set
-			{
-				if ((this._STT != value))
-				{
-					this.OnSTTChanging(value);
-					this.SendPropertyChanging();
-					this._STT = value;
-					this.SendPropertyChanged("STT");
-					this.OnSTTChanged();
-				}
-			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMRL", DbType="Bit")]
@@ -1515,7 +1457,7 @@ namespace DACS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERNAME", DbType="VarChar(15) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string USERNAME
 		{
 			get
@@ -1535,6 +1477,30 @@ namespace DACS.Models
 					this._USERNAME = value;
 					this.SendPropertyChanged("USERNAME");
 					this.OnUSERNAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNguoiDanhGia", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaNguoiDanhGia
+		{
+			get
+			{
+				return this._MaNguoiDanhGia;
+			}
+			set
+			{
+				if ((this._MaNguoiDanhGia != value))
+				{
+					if (this._NGUOIDANHGIA.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaNguoiDanhGiaChanging(value);
+					this.SendPropertyChanging();
+					this._MaNguoiDanhGia = value;
+					this.SendPropertyChanged("MaNguoiDanhGia");
+					this.OnMaNguoiDanhGiaChanged();
 				}
 			}
 		}
@@ -1569,6 +1535,40 @@ namespace DACS.Models
 						this._USERNAME = default(string);
 					}
 					this.SendPropertyChanged("ACCOUNT");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUOIDANHGIA_KQDANHGIA_ACCOUNT", Storage="_NGUOIDANHGIA", ThisKey="MaNguoiDanhGia", OtherKey="MaNguoiDanhGia", IsForeignKey=true)]
+		public NGUOIDANHGIA NGUOIDANHGIA
+		{
+			get
+			{
+				return this._NGUOIDANHGIA.Entity;
+			}
+			set
+			{
+				NGUOIDANHGIA previousValue = this._NGUOIDANHGIA.Entity;
+				if (((previousValue != value) 
+							|| (this._NGUOIDANHGIA.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NGUOIDANHGIA.Entity = null;
+						previousValue.KQDANHGIA_ACCOUNTs.Remove(this);
+					}
+					this._NGUOIDANHGIA.Entity = value;
+					if ((value != null))
+					{
+						value.KQDANHGIA_ACCOUNTs.Add(this);
+						this._MaNguoiDanhGia = value.MaNguoiDanhGia;
+					}
+					else
+					{
+						this._MaNguoiDanhGia = default(string);
+					}
+					this.SendPropertyChanged("NGUOIDANHGIA");
 				}
 			}
 		}
@@ -1718,120 +1718,6 @@ namespace DACS.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LOAIACCOUNT")]
-	public partial class LOAIACCOUNT : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _MALOAI;
-		
-		private string _TENLOAI;
-		
-		private EntitySet<ACCOUNT> _ACCOUNTs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMALOAIChanging(string value);
-    partial void OnMALOAIChanged();
-    partial void OnTENLOAIChanging(string value);
-    partial void OnTENLOAIChanged();
-    #endregion
-		
-		public LOAIACCOUNT()
-		{
-			this._ACCOUNTs = new EntitySet<ACCOUNT>(new Action<ACCOUNT>(this.attach_ACCOUNTs), new Action<ACCOUNT>(this.detach_ACCOUNTs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MALOAI", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MALOAI
-		{
-			get
-			{
-				return this._MALOAI;
-			}
-			set
-			{
-				if ((this._MALOAI != value))
-				{
-					this.OnMALOAIChanging(value);
-					this.SendPropertyChanging();
-					this._MALOAI = value;
-					this.SendPropertyChanged("MALOAI");
-					this.OnMALOAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TENLOAI", DbType="NVarChar(100)")]
-		public string TENLOAI
-		{
-			get
-			{
-				return this._TENLOAI;
-			}
-			set
-			{
-				if ((this._TENLOAI != value))
-				{
-					this.OnTENLOAIChanging(value);
-					this.SendPropertyChanging();
-					this._TENLOAI = value;
-					this.SendPropertyChanged("TENLOAI");
-					this.OnTENLOAIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LOAIACCOUNT_ACCOUNT", Storage="_ACCOUNTs", ThisKey="MALOAI", OtherKey="MALOAI")]
-		public EntitySet<ACCOUNT> ACCOUNTs
-		{
-			get
-			{
-				return this._ACCOUNTs;
-			}
-			set
-			{
-				this._ACCOUNTs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ACCOUNTs(ACCOUNT entity)
-		{
-			this.SendPropertyChanging();
-			entity.LOAIACCOUNT = this;
-		}
-		
-		private void detach_ACCOUNTs(ACCOUNT entity)
-		{
-			this.SendPropertyChanging();
-			entity.LOAIACCOUNT = null;
 		}
 	}
 	
@@ -2011,6 +1897,120 @@ namespace DACS.Models
 		{
 			this.SendPropertyChanging();
 			entity.LOP = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NGUOIDANHGIA")]
+	public partial class NGUOIDANHGIA : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _MaNguoiDanhGia;
+		
+		private string _TenLoai;
+		
+		private EntitySet<KQDANHGIA_ACCOUNT> _KQDANHGIA_ACCOUNTs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaNguoiDanhGiaChanging(string value);
+    partial void OnMaNguoiDanhGiaChanged();
+    partial void OnTenLoaiChanging(string value);
+    partial void OnTenLoaiChanged();
+    #endregion
+		
+		public NGUOIDANHGIA()
+		{
+			this._KQDANHGIA_ACCOUNTs = new EntitySet<KQDANHGIA_ACCOUNT>(new Action<KQDANHGIA_ACCOUNT>(this.attach_KQDANHGIA_ACCOUNTs), new Action<KQDANHGIA_ACCOUNT>(this.detach_KQDANHGIA_ACCOUNTs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNguoiDanhGia", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string MaNguoiDanhGia
+		{
+			get
+			{
+				return this._MaNguoiDanhGia;
+			}
+			set
+			{
+				if ((this._MaNguoiDanhGia != value))
+				{
+					this.OnMaNguoiDanhGiaChanging(value);
+					this.SendPropertyChanging();
+					this._MaNguoiDanhGia = value;
+					this.SendPropertyChanged("MaNguoiDanhGia");
+					this.OnMaNguoiDanhGiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenLoai", DbType="NVarChar(100)")]
+		public string TenLoai
+		{
+			get
+			{
+				return this._TenLoai;
+			}
+			set
+			{
+				if ((this._TenLoai != value))
+				{
+					this.OnTenLoaiChanging(value);
+					this.SendPropertyChanging();
+					this._TenLoai = value;
+					this.SendPropertyChanged("TenLoai");
+					this.OnTenLoaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUOIDANHGIA_KQDANHGIA_ACCOUNT", Storage="_KQDANHGIA_ACCOUNTs", ThisKey="MaNguoiDanhGia", OtherKey="MaNguoiDanhGia")]
+		public EntitySet<KQDANHGIA_ACCOUNT> KQDANHGIA_ACCOUNTs
+		{
+			get
+			{
+				return this._KQDANHGIA_ACCOUNTs;
+			}
+			set
+			{
+				this._KQDANHGIA_ACCOUNTs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_KQDANHGIA_ACCOUNTs(KQDANHGIA_ACCOUNT entity)
+		{
+			this.SendPropertyChanging();
+			entity.NGUOIDANHGIA = this;
+		}
+		
+		private void detach_KQDANHGIA_ACCOUNTs(KQDANHGIA_ACCOUNT entity)
+		{
+			this.SendPropertyChanging();
+			entity.NGUOIDANHGIA = null;
 		}
 	}
 	

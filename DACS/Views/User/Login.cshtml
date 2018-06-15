@@ -18,41 +18,48 @@
     <div class="container">
         <!-- offset là mỗi bên khi thu nhỏ vô thì sẽ đẩy vào 3 cột cho cái hình nằm giữa
         mt-số là margin top, pt-số là padding top, tương tự cho ml,mr,mb,pr,pl,pb -->
-        <div class="offset-md-3 col-md-6 mt-5 text-center" style="border:2px solid red ">
-            <h1>Cổng thông tin<br /> Sinh Viên Năm Tốt</h1>
-            <hr>
-            <div class="col-md-12 mt-3 ">
-                <h5>Tên đăng nhập</h5>
-            </div>
-            <div class="col-md-12 mt-3 ">
-                <div class="input-group ">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fa fa-user"></i>
-                        </span>
-
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <div class="offset-md-3 col-md-6 mt-5 text-center" style="border:2px solid red ">
+                <h1>Cổng thông tin<br /> Sinh Viên Năm Tốt</h1>
+                <hr>
+                <div class="col-md-12 mt-3 ">
+                    <h5>Tên đăng nhập</h5>
+                </div>
+                <div class="col-md-12 mt-3 ">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                        @Html.TextBox("username")
+                        @ViewData["Loi1"]
+                        @*<input type="text" class="form-control" placeholder="Nhập Mã Số Sinh Viên">*@
                     </div>
-                    <input type="text" class="form-control" placeholder="Nhập Mã Số Sinh Viên">
+                </div>
+                <div class="col-md-12 mt-3 ">
+                    <h5>Mật Khẩu</h5>
+                </div>
+                <div class="col-md-12 mt-3 ">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        @Html.Password("Password")
+                        @ViewData["Loi2"]
+                        @*<input type="password" class="form-control" placeholder="Nhập Mật Khẩu">*@
+                    </div>
+                </div>
+                <div class="col-md-12 mt-3 mb-3">
+                    <input class="btn btn-outline-warning" type="submit" value="Login" />
+                    @*<button class="btn btn-outline-warning" type="submit">Login</button>*@
                 </div>
             </div>
-            <div class="col-md-12 mt-3 ">
-                <h5>Mật Khẩu</h5>
-            </div>
-            <div class="col-md-12 mt-3 ">
-                <div class="input-group ">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <i class="fa fa-lock"></i>
-                        </span>
-
-                    </div>
-                    <input type="password" class="form-control" placeholder="Nhập Mật Khẩu">
-                </div>
-            </div>
-            <div class="col-md-12 mt-3 mb-3">
-                <button class="btn btn-outline-warning">Login</button>
-            </div>
-        </div>
+        }
         <div class="container text-center mt-3">
             <p>Phiên bản 1.0.0</p>
             <p>Bản quyền của 15DTH11 - Group – Phát triển bởi 15DTH11 - Group © 2018</p>
@@ -61,6 +68,7 @@
             <a href="#"><i style="font-size:50px;color:black" class="fab fa-youtube"></i></a>
         </div>
     </div>
+
 </body>
 
 </html> 

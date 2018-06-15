@@ -16,64 +16,64 @@
     <link href="~/css/Different/style2.css" rel="stylesheet" />
 </head>
 <body>
-       <form id="registrationinfo" class="ml-2" >
-            <span style="color:black;">Họ và tên:<input  type="text" class="form-control text-center" /></span>
-            <div class="form-row">
-                <div class="form-group col-md-4"></div>
+    <form id="registrationinfo" class="ml-2">
+        <span style="color:black;">Họ và tên:<input type="text" class="form-control text-center" /></span>
+        <div class="form-row">
+            <div class="form-group col-md-4"></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <span style="color:black;">Mã số sinh viên:</span>
+                <input style="text-align: center" type="number" class="form-control" maxlength="12" placeholder="Mã số sinh viên">
             </div>
-           <div class="form-row">
-               <div class="form-group col-md-4">
-                   <span style="color:black;">Mã số sinh viên:</span>
-                   <input style="text-align: center" type="number" class="form-control" maxlength="12"  placeholder="Mã số sinh viên">
-               </div>
-               <div class="form-group col-md-4">
-                   <span style="color:black;">Lớp:</span>
-                   <input style="text-align: center" type="text" maxlength="12" class="form-control"  placeholder="Lớp">
-               </div>
-               <div class="form-group col-md-4">
-                    <span style="color:black;">Khoa/Viện:</span>
-                    <input style="text-align: center" type="text" class="form-control"  placeholder="Khoa/Viện">
-                </div>  
-           </div>
-           <div class="form-row">
-               <p style="color:palevioletred; font-size:20px">Sau khi tìm hiểu về mục đích, ý nghĩa phong trào <b>"Sinh viên 5 tốt"</b>, tôi xin đăng ký phấn đấu đạt danh hiệu "Sinh viên 5 tốt" cấp: </p>
-               <select class="form-control">
-                   <option value="Trung ương">Trung ương</option>
-                   <option value="Thành">Thành</option>
-                   <option value="Trường">Trường</option>
-                   <option value="Khoa/Viện" selected>Khoa/Viện</option>
-               </select>
-           </div>
-</form>
+            <div class="form-group col-md-4">
+                <span style="color:black;">Lớp:</span>
+                <input style="text-align: center" type="text" maxlength="12" class="form-control" placeholder="Lớp">
+            </div>
+            <div class="form-group col-md-4">
+                <span style="color:black;">Khoa/Viện:</span>
+                <input style="text-align: center" type="text" class="form-control" placeholder="Khoa/Viện">
+            </div>
+        </div>
+        <div class="form-row">
+            <p style="color:palevioletred; font-size:20px">Sau khi tìm hiểu về mục đích, ý nghĩa phong trào <b>"Sinh viên 5 tốt"</b>, tôi xin đăng ký phấn đấu đạt danh hiệu "Sinh viên 5 tốt" cấp: </p>
+            <select class="form-control">
+                <option value="Trung ương">Trung ương</option>
+                <option value="Thành">Thành</option>
+                <option value="Trường">Trường</option>
+                <option value="Khoa/Viện" selected>Khoa/Viện</option>
+            </select>
+        </div>
+    </form>
     <div class="simple-form">
         <form id="registration">
             <h2>1. TIÊU CHUẨN ĐẠO ĐỨC</h2>
             <b style="color: yellow">Điểm rèn luyện</b>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <input style="text-align: center" type="number" class="form-control" id="inputEmail4" placeholder="Học kì 1">
+                    <input style="text-align: center" type="number" class="form-control" id="DRL_HK1" placeholder="Học kì 1">
                 </div>
                 <div class="form-group col-md-4">
-                    <input style="text-align: center" type="number" class="form-control" id="inputPassword4" placeholder="Học kì 2">
+                    <input style="text-align: center" type="number" class="form-control" id="DRL_HK2" placeholder="Học kì 2">
                 </div>
                 <div class="form-group col-md-4">
-                    <input style="text-align: center" type="number" class="form-control" id="inputPassword4" placeholder="Trung bình cả năm">
+                    <input style="text-align: center" type="number" class="form-control" id="DRL_TB" placeholder="Trung bình cả năm">
                 </div>
             </div>
             <b style="color: yellow">Kết quả phân tích chất lượng đoàn viên</b>
             <div class="form-row">
                 <div class="form-group col-md">
-                    <input style="text-align: center" type="text" class="form-control" id="inputEmail4">
+                    <input style="text-align: center" type="text" class="form-control" id="CLDoanvien">
                 </div>
             </div>
             <b style="color: yellow">Thành tích khác</b>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle" value="Bike"> Là “Thanh niên tiên tiến làm theo lời Bác”
+                    <input type="checkbox" name="vehicle" id="tntt"> Là “Thanh niên tiên tiến làm theo lời Bác”
                     <br>
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle" value="Car"> Tham gia Hội thi về tư tưởng Hồ Chí Minh
+                    <input type="checkbox" name="vehicle" id="ttHCM"> Tham gia Hội thi về tư tưởng Hồ Chí Minh
                     <br>
                 </div>
             </div>
@@ -83,13 +83,13 @@
             <b style="color: yellow">Điểm học tập</b>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <input style="text-align: center" type="number" class="form-control" id="inputEmail4" placeholder="Học kì 1">
+                    <input style="text-align: center" type="number" class="form-control" id="DHT_HK1" placeholder="Học kì 1">
                 </div>
                 <div class="form-group col-md-4">
-                    <input style="text-align: center" type="number" class="form-control" id="inputPassword4" placeholder="Học kì 2">
+                    <input style="text-align: center" type="number" class="form-control" id="DHT_HK2" placeholder="Học kì 2">
                 </div>
                 <div class="form-group col-md-4">
-                    <input style="text-align: center" type="number" class="form-control" id="inputPassword4" placeholder="Trung bình cả năm">
+                    <input style="text-align: center" type="number" class="form-control" id="DHT_TB" placeholder="Trung bình cả năm">
                 </div>
             </div>
             <b style="color: yellow">Tham gia phong trào Nghiên Cứu Khoa Học</b>
@@ -179,13 +179,12 @@
                 <div class="form-group col-md-12">
                     <input type="text" name="vehicle" placeholder="Nhập nội dung">
                 </div>
-
             </div>
         </form>
         <div>
-            <button type="submit" class="btn btn-outline-danger form-control mt-3">Sign in</button>
+            <button type="submit" class="btn btn-outline-danger form-control mt-3">Submit</button>
         </div>
-    </div>  
+    </div>
 </body>
 </html>
 

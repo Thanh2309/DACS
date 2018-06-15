@@ -14,8 +14,30 @@ namespace DACS.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult TTinSV()
         {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult TTinSV(FormCollection collection, PHIEUDK_SV5T pdki)
+        {
+            int DRL_HK1 = int.Parse(collection["DRL_HK1"]);
+            int DRL_HK2 = int.Parse(collection["DRL_HK2"]);
+            int DRL_tb = int.Parse(collection["DRL_tb"]);
+            string kq = collection["CLDoanvien"];
+            bool tntt = bool.Parse(collection["tntt"]);
+            bool ttHCM = bool.Parse(collection["ttHCM"]);
+            float dht_hk1 = float.Parse(collection["DHT_HK1"]);
+            float dht_hk2 = float.Parse(collection["DHT_HK2"]);
+            float dht_tb = float.Parse(collection["DHT_TB"]);
+            pdki.DRL_HK1 = DRL_HK1;
+
+            pdki.DRL_HK2 = DRL_HK2;
+
+            pdki.DRL_TB = DRL_tb;
+
+            pdki.KQ_CHATLUONGDOANVIEN = kq;
             return View();
         }
         public ActionResult SV5T()
@@ -35,36 +57,31 @@ namespace DACS.Controllers
         {
             return View();
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
         public ActionResult Login(FormCollection collection)
         {
             //gán các giá trị người dùng nhập liệu cho các biến 
             var tendn = collection["username"];
-            var matkhau = collection["password"];
+            var matkhau = collection["Password"];
             if (String.IsNullOrEmpty(tendn))
             {
-                ViewData["Loi1"] = "Phải nhập tên đăng nhập";
+                ViewData["Loi1"] = "Phải nhập mã số sinh viên";
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
-                ViewData["Loi2"] = "Phải nhập mật khẩu";
+                ViewData["Loi2"] = "Mật khẩu là MSSV";
             }
             else
             {
                 //Gán giá trị cho đối tượng được tạo mới ad
-                //Admin ad = db.Admins.SingleOrDefault(n => n.UserAdmin == tendn && n.PassAdmin == matkhau);
-                //if (ad != null)
-                //{
-                //    //ViewBag.THongbao-"Chúc mừng bạn đã đăng nhập thàn công";
-                //    Session["Taikhoanadmin"] = ad;
-                //    return RedirectToAction("Index", "Admin");
-                //}
-                //else
-                //    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                ACCOUNT ac = data.ACCOUNTs.SingleOrDefault(n => n.USERNAME == tendn && n.PASSWORD == matkhau);
+                if (ac != null)
+                {
+                    ViewBag.THongbao = "Chúc mừng bạn đã đăng nhập thành công";
+                    Session["Taikhoan"] = ac;
+                    return RedirectToAction("Index", "User");
+                }
+                else
+                    ViewBag.Thongbao = "Tài khoản bị lỗi. Liên hệ phòng CTSV để được giải quyết";
             }
             return View();
         }
@@ -120,10 +137,19 @@ namespace DACS.Controllers
 
         public string lay_tc_hoi_nhap2()
         {
-            var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "TN");
+            var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "HN");
             return tn1.NOIDUNG_TC2;
         }
-
+        public string lay_tc_hoi_nhap3()
+        {
+            var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "HN");
+            return tn1.NOIDUNG_TC3;
+        }
+        public string lay_tc_hoi_nhap4()
+        {
+            var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "HN");
+            return tn1.NOIDUNGTC_4;
+        }
         //public bool? lay_check_box()
         //{
         //    var dd = data.KQDANHGIA_ACCOUNTs.SingleOrDefault(t => t.USERNAME == "TK_CNTT");
