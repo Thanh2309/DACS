@@ -129,18 +129,19 @@
             }
         });
     }
-    //layCheckBox();
-    //function layCheckBox() {
-    //    $.ajax({
-    //        url: 'lay_check_box',
-    //        method: 'POST',
-    //        success: function (data) {
-                
-    //        }
-    //    });
-    //}
 
-    $("#test1").on("change", function () {
-        alert("blah blah");
-    });
+    layCheckBox_DRL();
+    function layCheckBox_DRL() {
+        $.ajax({
+            url: 'lay_check_box_DRL',
+            method: 'POST',
+            success: function (data) {
+                $("#dd_title").after(data);
+            }
+        });
+    }
+
+    //$("#test1").on("change", function () {
+    //    alert("blah blah");
+    //});
 });

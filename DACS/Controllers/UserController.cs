@@ -78,6 +78,8 @@ namespace DACS.Controllers
                 {
                     ViewBag.THongbao = "Chúc mừng bạn đã đăng nhập thành công";
                     Session["Taikhoan"] = ac;
+                    Session["LoaiTaikhoan"] = ac.MALOAI.ToLower().Trim();
+                    Session["TaikhoanUsername"] = ac.USERNAME;
                     return RedirectToAction("Index", "User");
                 }
                 else
@@ -150,21 +152,89 @@ namespace DACS.Controllers
             var tn1 = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "HN");
             return tn1.NOIDUNGTC_4;
         }
-        //public bool? lay_check_box()
-        //{
-        //    var dd = data.KQDANHGIA_ACCOUNTs.SingleOrDefault(t => t.USERNAME == "TK_CNTT");
-        //    var diem_rl = dd.DIEMRL;
-        //    var diem_ht = dd.DIEMHOCTAP;
-        //    var test_tl = dd.TEST_THELUC;
-        //    var tn_5ngaytn = dd.TN_5NGAYTN;
-        //    var tn_3cdl = dd.TN_3CHIENDICHLON;
-        //    var hn_nn = dd.HN_NGOAINGU;
-        //    var hn_kn = dd.HN_KYNANG;
-        //    var ut_knd = dd.UT_KETNAPDANG;
-        //    var ut_hm = dd.UT_HIENMAU;
-        //    var ut_bd = dd.UT_BIEUDUONG;
 
-
-        //}
+        public string lay_check_box_DRL()
+        {
+            var s = "";
+            var lst_result = from li in data.KQDANHGIA_ACCOUNTs
+                             where li.USERNAME == Session["TaikhoanUsername"].ToString()
+                             select new { user_chkboxDRL = li.DIEMRL };
+            int count = 0;
+            foreach (var item in lst_result)
+            {
+                s += "<td>";
+                if ((bool)item.user_chkboxDRL)
+                {
+                    if (count == 0)
+                    {
+                        s += "<input type='checkbox' checked='checked' id='DRL_SV'/>";
+                        s += "<label for='DRL_SV'></label>";
+                    }
+                    else if (count == 1)
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv")
+                        {
+                            s += "<input disabled type='checkbox' checked='checked' id='DRL_K'/>";
+                            s += "<label for='DRL_K'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' checked='checked' id='DRL_K'/>";
+                            s += "<label for='DRL_K'></label>";
+                        }
+                    }
+                    else
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv" || Session["LoaiTaikhoan"].ToString() == "k")
+                        {
+                            s += "<input disabled type='checkbox' checked='checked' id='DRL_PB'/>";
+                            s += "<label for='DRL_PB'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' checked='checked' id='DRL_PB'/>";
+                            s += "<label for='DRL_PB'></label>";
+                        }
+                    }
+                }
+                else
+                {
+                    if (count == 0)
+                    {
+                        s += "<input type='checkbox' id='DRL_SV'/>";
+                        s += "<label for='DRL_SV'></label>";
+                    }
+                    else if (count == 1)
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv")
+                        {
+                            s += "<input disabled type='checkbox' id='DRL_K'/>";
+                            s += "<label for='DRL_K'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' id='DRL_K'/>";
+                            s += "<label for='DRL_K'></label>";
+                        }
+                    }
+                    else
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv" || Session["LoaiTaikhoan"].ToString() == "k")
+                        {
+                            s += "<input disabled type='checkbox' id='DRL_PB'/>";
+                            s += "<label for='DRL_PB'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' id='DRL_PB'/>";
+                            s += "<label for='DRL_PB'></label>";
+                        }
+                    }
+                }
+                s+="</td>";
+                count++;
+            }
+            return s;
+        }
     }
 }

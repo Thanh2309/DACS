@@ -63,7 +63,7 @@ namespace DACS.Models
     #endregion
 		
 		public DBL_DACSDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
