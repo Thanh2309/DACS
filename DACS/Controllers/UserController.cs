@@ -40,9 +40,12 @@ namespace DACS.Controllers
             pdki.KQ_CHATLUONGDOANVIEN = kq;
             return View();
         }
+
+        [HttpGet]
         public ActionResult SV5T()
         {
-            //var dd = data.CHITIET_TCs.SingleOrDefault(t => t.MATC == "DD");
+            if (string.IsNullOrEmpty(Session["LoaiTaikhoan"] as string))
+                return RedirectToAction("Login", "User");
             return View();
         }
         public ActionResult LHTT()
@@ -153,6 +156,7 @@ namespace DACS.Controllers
             return tn1.NOIDUNGTC_4;
         }
 
+        //lay diem ren luyen
         public string lay_check_box_DRL()
         {
             var s = "";
@@ -235,6 +239,97 @@ namespace DACS.Controllers
                 count++;
             }
             return s;
+        }
+
+        //lay diem hoc tap
+        public string lay_check_box_DHT()
+        {
+            var s = "";
+            var lst_result = from li in data.KQDANHGIA_ACCOUNTs
+                             where li.USERNAME == Session["TaikhoanUsername"].ToString()
+                             select new { user_chkboxDHT = li.DIEMHOCTAP };
+            int count = 0;
+            foreach (var item in lst_result)
+            {
+                s += "<td>";
+                if ((bool)item.user_chkboxDHT)
+                {
+                    if (count == 0)
+                    {
+                        s += "<input type='checkbox' checked='checked' id='DHT_SV'/>";
+                        s += "<label for='DHT_SV'></label>";
+                    }
+                    else if (count == 1)
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv")
+                        {
+                            s += "<input disabled type='checkbox' checked='checked' id='DHT_K'/>";
+                            s += "<label for='DHT_K'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' checked='checked' id='DHT_K'/>";
+                            s += "<label for='DHT_K'></label>";
+                        }
+                    }
+                    else
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv" || Session["LoaiTaikhoan"].ToString() == "k")
+                        {
+                            s += "<input disabled type='checkbox' checked='checked' id='DHT_PB'/>";
+                            s += "<label for='DHT_PB'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' checked='checked' id='DHT_PB'/>";
+                            s += "<label for='DHT_PB'></label>";
+                        }
+                    }
+                }
+                else
+                {
+                    if (count == 0)
+                    {
+                        s += "<input type='checkbox' id='DHT_SV'/>";
+                        s += "<label for='DHT_SV'></label>";
+                    }
+                    else if (count == 1)
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv")
+                        {
+                            s += "<input disabled type='checkbox' id='DHT_K'/>";
+                            s += "<label for='DHT_K'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' id='DHT_K'/>";
+                            s += "<label for='DHT_K'></label>";
+                        }
+                    }
+                    else
+                    {
+                        if (Session["LoaiTaikhoan"].ToString() == "sv" || Session["LoaiTaikhoan"].ToString() == "k")
+                        {
+                            s += "<input disabled type='checkbox' id='DHT_PB'/>";
+                            s += "<label for='DHT_PB'></label>";
+                        }
+                        else
+                        {
+                            s += "<input type='checkbox' id='DHT_PB'/>";
+                            s += "<label for='DHT_PB'></label>";
+                        }
+                    }
+                }
+                s += "</td>";
+                count++;
+            }
+            return s;
+        }
+
+        //thay doi checkbox
+        public string thaydoi_checkbox(string chkbox_id)
+        {
+
         }
     }
 }

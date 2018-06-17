@@ -141,7 +141,25 @@
         });
     }
 
-    //$("#test1").on("change", function () {
-    //    alert("blah blah");
-    //});
+    layCheckBox_DHT();
+    function layCheckBox_DHT() {
+        $.ajax({
+            url: 'lay_check_box_DHT',
+            method: 'POST',
+            success: function (data) {
+                $("#ht_title").after(data);
+            }
+        });
+    }
+
+    $('body').delegate("input[type='checkbox']", 'click', function () {
+        var chkbox_id = $(this).attr("id");
+        $.ajax({
+            url: 'thaydoi_checkbox?chkboxId='+chkbox_id,
+            method: 'POST',
+            success: function (data) {
+                $("#dd_title").after(data);
+            }
+        });
+    });
 });
