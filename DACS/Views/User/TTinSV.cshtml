@@ -95,41 +95,29 @@
             <b style="color: yellow">Tham gia phong trào Nghiên Cứu Khoa Học</b>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle" value="Bike"> Là “Thanh niên tiên tiến làm theo lời Bác”
-                    <br>
-                    <input type="checkbox" name="vehicle" value="Car"> Thực hiện Đề tài NCKH
-                    <br>
-                </div>
-                <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle" value="Car"> Đạt giải Cuộc thi học thuật:
-                    <input type="text" placeholder="Tên giải cuộc thi">
-                </div>
-            </div>
-            <b style="color: yellow">Thành tích khác</b>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle" value="Bike"> Là “Thanh niên tiên tiến làm theo lời Bác”
+
+                    <input type="checkbox" name="vehicle" id="NCKH"> Thực hiện Đề tài NCKH
                     <br>
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle" value="Car"> Tham gia Hội thi về tư tưởng Hồ Chí Minh
-                    <br>
+                    <input type="checkbox" name="vehicle"> Đạt giải Cuộc thi học thuật:
+                    <input type="text" placeholder="Tên giải cuộc thi" id="CT_HT">
                 </div>
             </div>
         </form>
         <form id="registration">
             <h2>3.	TIÊU CHUẨN THỂ LỰC</h2>
-            <b style="color: yellow">Tham gia phong trào Nghiên Cứu Khoa Học</b>
+            @*<b style="color: yellow">Tham gia phong trào Nghiên Cứu Khoa Học</b>*@
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle"> Đạt danh hiệu “Sinh viên khỏe””
+                    <input type="checkbox" name="vehicle" id="SVK"> Đạt danh hiệu “Sinh viên khỏe””
                     <br>
-                    <input type="checkbox" name="vehicle"> Thành viên các Đội tuyển TDTT
+                    <input type="checkbox" name="vehicle" id="TDTT"> Thành viên các Đội tuyển TDTT
                     <br>
                 </div>
                 <div class="form-group col-md-6">
                     <input type="checkbox" name="vehicle"> Đạt Giải trong Hội thao các cấp:
-                    <input type="text" placeholder="Tên giải cuộc thi">
+                    <input type="text" placeholder="Tên giải cuộc thi" id="HoiThao">
                 </div>
             </div>
         </form>
@@ -137,10 +125,10 @@
             <h2>4.	TIÊU CHUẨN TÌNH NGUYỆN</h2>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle"> Tham gia, nhận Giấy chứng nhận: Xuân Tình nguyện, Mùa Hè xanh
+                    <input type="checkbox" name="vehicle" id="XTN"> Tham gia, nhận Giấy chứng nhận: Xuân Tình nguyện, Mùa Hè xanh
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle"> Hoàn thành 05 hoạt động tình nguyện/năm
+                    <input type="checkbox" name="vehicle" id="5TN"> Hoàn thành 05 hoạt động tình nguyện/năm
                 </div>
             </div>
         </form>
@@ -148,14 +136,13 @@
             <h2>5.	TIÊU CHUẨN HỘI NHẬP</h2>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle"> Đạt trình độ Anh văn B1 ( khác: <input type="text" placeholder="Bằng cấp đạt được"> )<br>
-                    <input type="checkbox" name="vehicle"> Hoàn thành 05 hoạt động tình nguyện/năm <br>
+                    <input type="checkbox" name="vehicle" id="B1"> Đạt trình độ Anh văn B1 ( khác: <input type="text" placeholder="Bằng cấp đạt được" id="B1khac">)<br>
                     <input type="checkbox" name="vehicle"> Hoàn thành 01 Khóa học kỹ năng
                 </div>
                 <div class="form-group col-md-6">
-                    <input type="checkbox" name="vehicle"> Tham gia hoạt động về Hội nhập <br>
-                    <input type="checkbox" name="vehicle"> Đạt Giải trong cuộc thi về Ngoại ngữ <br>
-                    <input type="checkbox" name="vehicle"> Hoàn thành 03 buổi Hội thảo kỹ năng
+                    <input type="checkbox" name="vehicle" id="HN"> Tham gia hoạt động về Hội nhập <br>
+                    <input type="checkbox" name="vehicle" id="giai_NN"> Đạt Giải trong cuộc thi về Ngoại ngữ <br>
+                    <input type="checkbox" name="vehicle" id="HoithaoKN"> Hoàn thành 03 buổi Hội thảo kỹ năng
                 </div>
             </div>
         </form>

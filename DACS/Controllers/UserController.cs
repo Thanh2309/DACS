@@ -31,17 +31,38 @@ namespace DACS.Controllers
             float dht_hk1 = float.Parse(collection["DHT_HK1"]);
             float dht_hk2 = float.Parse(collection["DHT_HK2"]);
             float dht_tb = float.Parse(collection["DHT_TB"]);
+
+            bool NCKH = bool.Parse(collection["NCKH"]);
+            string CT_HT = collection["CT_HT"];
+            bool SVK = bool.Parse(collection["SVK"]);
+            bool TDTT = bool.Parse(collection["TDTT"]);
+            string Hoithao = collection["HoiThao"];
+            bool XTN = bool.Parse(collection["XTN"]);
+            bool tn_5 = bool.Parse(collection["5TN"]);
+            bool B1 = bool.Parse(collection["B1"]);
+            string B1khac = collection["B1khac"];
+            bool HN = bool.Parse(collection["HN"]);
+            bool giai_NN = bool.Parse(collection["giai_NN"]);
+            bool HoithaoKN = bool.Parse(collection["HoithaoKN"]);
+
             pdki.DRL_HK1 = DRL_HK1;
-
             pdki.DRL_HK2 = DRL_HK2;
-
             pdki.DRL_TB = DRL_tb;
-
             pdki.KQ_CHATLUONGDOANVIEN = kq;
-            return View();
-        }
+            pdki.DD_THANHNIENTTLAMTHEOLOIBAC = tntt;
+            pdki.DD_HOITHI_TTHCM = ttHCM;
+            pdki.DIEMHK1 = dht_hk1;
+            pdki.DIEMHK2 = dht_hk2;
+            pdki.DIEMTB = dht_tb;
+            pdki.HT_BAIVIETKH = NCKH;
+            pdki.TEN_THIHOCTHUAT = CT_HT;
+            pdki.TL_SVKHOE = SVK;
+            pdki.TL_TV_DOITUYENTDTT = TDTT;
+            data.PHIEUDK_SV5Ts.InsertOnSubmit(pdki);
+            data.SubmitChanges();
 
-        [HttpGet]
+            return RedirectToAction("Index");
+        }
         public ActionResult SV5T()
         {
             if (string.IsNullOrEmpty(Session["LoaiTaikhoan"] as string))
@@ -81,8 +102,8 @@ namespace DACS.Controllers
                 {
                     ViewBag.THongbao = "Chúc mừng bạn đã đăng nhập thành công";
                     Session["Taikhoan"] = ac;
-                    Session["LoaiTaikhoan"] = ac.MALOAI.ToLower().Trim();
                     Session["TaikhoanUsername"] = ac.USERNAME;
+                    Session["LoaiTaikhoan"] = ac.MALOAI.ToLower().Trim();
                     return RedirectToAction("Index", "User");
                 }
                 else
@@ -329,7 +350,7 @@ namespace DACS.Controllers
         //thay doi checkbox
         public string thaydoi_checkbox(string chkbox_id)
         {
-
+            return "đá";
         }
     }
 }
