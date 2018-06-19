@@ -8,7 +8,7 @@ namespace DACS.Controllers
 {
     public class UserController : Controller
     {
-        DataClasses1DataContext data = new DataClasses1DataContext();
+        DOANCOSODataContext data = new DOANCOSODataContext();
         // GET: User
         public ActionResult Index()
         {

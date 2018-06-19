@@ -4,173 +4,148 @@
     Layout = "~/Views/Shared/Layout_User.cshtml";
 }
 
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
-</head>
 <style>
     .table thead th {
         vertical-align: top;
         border-bottom: 2px solid #dee2e6;
     }
 </style>
-<body>
-    <table style="overflow-x:auto;margin-top:76px;" class="table table-hover table-bordered text-justify table-responsive">
-        <thead>
-            <tr>
-                <th rowspan="4">STT</th>
-                <th rowspan="4">Đợt</th>
-                <th rowspan="4">Hệ</th>
-                <th rowspan="4">Khóa</th>
-                <th rowspan="4">Khoa</th>
-                <th rowspan="4">Lớp</th>
-                <th rowspan="4">SV đăng ký</th>
-                <th rowspan="4">Tổng SV</th>
-                <th colspan="4">Thống Kê</th>
-                <th colspan="3">CB/GV phụ trách</th>
-                <th colspan="15">1. Tiêu chuẩn "Học tập"</th>
-                <th colspan="13">2. Tiêu chuẩn "Rèn luyện"</th>
-                <th colspan="7">3. Tiêu chuẩn "Kỹ năng"</th>
-                <th rowspan="4">Số tiêu chí đạt</th>
-            </tr>
-            <tr>
-                <th rowspan="4">Đảng viên</th>
-                <th rowspan="4">Đoàn viên</th>
-                <th rowspan="4">Hội viên</th>
-                <th rowspan="4">Đã nộp file theo dõi lớp</th>
-                <th rowspan="4">Họ và tên</th>
-                <th rowspan="4">SĐT</th>
-                <th rowspan="4">Email</th>
-                <th colspan="5">1.1<br>>=30% sinh viên đạt điểm trung bình năm học từ 2.5.<br>(15 điểm)</th>
-                <th colspan="2">1.2<br>>=80% sinh viên đi học, đọc tài liệu ở nhà, nghe giảng và tích cực tham gia thảo luận ở lớp.<br>(12 điểm)</th>
-                <th colspan="2">1.3<br>Lớp tổ chức 01 buổi sinh hoạt chuyên đề; hoặc >=20% sinh viên tham gia cuộc thi học thuật; hoặc có sinh viên nghiên cứu khoa học các cấp.<br>(8 điểm)</th>
-                <th colspan="4">1.4<br>>=2 sinh viên đạt "Sinh viên 5 tốt" từ cấp Trường.<br>(5 điểm)</th>
-                <th colspan="2">1.5<br>Không có sinh viên vi phạm qui chế thi.<br>(5 điểm)</th>
-                <th colspan="5">2.1<br>>=70% sinh viên có kết quả đánh giá rèn luyện từ tốt trở lên.<br>(12 điểm)</th>
-                <th colspan="2">2.2<br>100% sinh viên chấp hành quy định Nhà trường (đeo bảng tên, không xả rác, không hút thuốc, ...).<br>(6 điểm)</th>
-                <th colspan="2">2.3<br>>=03 sinh viên tham gia hiến máy nhân đạo; hoặc >=50% sinh viên lớp tham gia 03 ngày tình nguyện trong năm học.<br>(6 điểm)</th>
-                <th colspan="2">2.4<br>Tổ chức hoặc tham gia 01 phong trào văn nghệ, thể dục thể thao các cấp.<br>(6 điểm)</th>
-                <th colspan="2">2.5<br>Tổ chức 01 hoạt động tình nguyện vì cộng đồng.<br>(5 điểm)</th>
-                <th colspan="2">3.1<br>>=70% sinh viên tham gia 01 buổi hội thảo hoặc tập huấn kỹ năng các cấp tổ chức.<br>(10 điểm)</th>
-                <th colspan="5">3.2<br>Tổ chức 02 buổi sinh hoạt kỹ năng ngoại khóa.<br>(10 điểm)</th>
-            </tr>
-            <tr>
-                <th colspan="2">NH16-17</th>
-                <th colspan="2">NH17-18</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Đăng ký</th>
-                <th rowspan="2">P.CTSV cập nhật ĐK</th>
-                <th rowspan="2">SL Đạt</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th colspan="2">NH16-17</th>
-                <th colspan="2">NH17-18</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">SL - Hành vi vi phạm</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Hoàn thành</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-                <th rowspan="2">Thực trạng 1</th>
-                <th rowspan="2">Kết quả 1</th>
-                <th rowspan="2">Thực trạng 2</th>
-                <th rowspan="2">Kết quả 2</th>
-                <th style="background-color: red" rowspan="2">Kết quả</th>
-            </tr>
-            <tr>
-                <th>HKI</th>
-                <th>HKII</th>
-                <th>HKI</th>
-                <th>HKII</th>
-                <th>HKI</th>
-                <th>HKII</th>
-                <th>HKI</th>
-                <th>HKII</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-                <td>VD</td>
-            </tr>
-        </tbody>
-    </table>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-</body>
-
-</html>
+<table style="overflow-x:auto;margin-top:76px;" class="table table-hover table-bordered text-justify table-responsive">
+    <thead>
+        <tr>
+            <th rowspan="4">STT</th>
+            <th rowspan="4">Đợt</th>
+            <th rowspan="4">Hệ</th>
+            <th rowspan="4">Khóa</th>
+            <th rowspan="4">Khoa</th>
+            <th rowspan="4">Lớp</th>
+            <th rowspan="4">SV đăng ký</th>
+            <th rowspan="4">Tổng SV</th>
+            <th colspan="4">Thống Kê</th>
+            <th colspan="3">CB/GV phụ trách</th>
+            <th colspan="15">1. Tiêu chuẩn "Học tập"</th>
+            <th colspan="13">2. Tiêu chuẩn "Rèn luyện"</th>
+            <th colspan="7">3. Tiêu chuẩn "Kỹ năng"</th>
+            <th rowspan="4">Số tiêu chí đạt</th>
+        </tr>
+        <tr>
+            <th rowspan="4">Đảng viên</th>
+            <th rowspan="4">Đoàn viên</th>
+            <th rowspan="4">Hội viên</th>
+            <th rowspan="4">Đã nộp file theo dõi lớp</th>
+            <th rowspan="4">Họ và tên</th>
+            <th rowspan="4">SĐT</th>
+            <th rowspan="4">Email</th>
+            <th colspan="5">1.1<br>>=30% sinh viên đạt điểm trung bình năm học từ 2.5.<br>(15 điểm)</th>
+            <th colspan="2">1.2<br>>=80% sinh viên đi học, đọc tài liệu ở nhà, nghe giảng và tích cực tham gia thảo luận ở lớp.<br>(12 điểm)</th>
+            <th colspan="2">1.3<br>Lớp tổ chức 01 buổi sinh hoạt chuyên đề; hoặc >=20% sinh viên tham gia cuộc thi học thuật; hoặc có sinh viên nghiên cứu khoa học các cấp.<br>(8 điểm)</th>
+            <th colspan="4">1.4<br>>=2 sinh viên đạt "Sinh viên 5 tốt" từ cấp Trường.<br>(5 điểm)</th>
+            <th colspan="2">1.5<br>Không có sinh viên vi phạm qui chế thi.<br>(5 điểm)</th>
+            <th colspan="5">2.1<br>>=70% sinh viên có kết quả đánh giá rèn luyện từ tốt trở lên.<br>(12 điểm)</th>
+            <th colspan="2">2.2<br>100% sinh viên chấp hành quy định Nhà trường (đeo bảng tên, không xả rác, không hút thuốc, ...).<br>(6 điểm)</th>
+            <th colspan="2">2.3<br>>=03 sinh viên tham gia hiến máy nhân đạo; hoặc >=50% sinh viên lớp tham gia 03 ngày tình nguyện trong năm học.<br>(6 điểm)</th>
+            <th colspan="2">2.4<br>Tổ chức hoặc tham gia 01 phong trào văn nghệ, thể dục thể thao các cấp.<br>(6 điểm)</th>
+            <th colspan="2">2.5<br>Tổ chức 01 hoạt động tình nguyện vì cộng đồng.<br>(5 điểm)</th>
+            <th colspan="2">3.1<br>>=70% sinh viên tham gia 01 buổi hội thảo hoặc tập huấn kỹ năng các cấp tổ chức.<br>(10 điểm)</th>
+            <th colspan="5">3.2<br>Tổ chức 02 buổi sinh hoạt kỹ năng ngoại khóa.<br>(10 điểm)</th>
+        </tr>
+        <tr>
+            <th colspan="2">NH16-17</th>
+            <th colspan="2">NH17-18</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Đăng ký</th>
+            <th rowspan="2">P.CTSV cập nhật ĐK</th>
+            <th rowspan="2">SL Đạt</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th colspan="2">NH16-17</th>
+            <th colspan="2">NH17-18</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">SL - Hành vi vi phạm</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Hoàn thành</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+            <th rowspan="2">Thực trạng 1</th>
+            <th rowspan="2">Kết quả 1</th>
+            <th rowspan="2">Thực trạng 2</th>
+            <th rowspan="2">Kết quả 2</th>
+            <th style="background-color: red" rowspan="2">Kết quả</th>
+        </tr>
+        <tr>
+            <th>HKI</th>
+            <th>HKII</th>
+            <th>HKI</th>
+            <th>HKII</th>
+            <th>HKI</th>
+            <th>HKII</th>
+            <th>HKI</th>
+            <th>HKII</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+            <td>VD</td>
+        </tr>
+    </tbody>
+</table>

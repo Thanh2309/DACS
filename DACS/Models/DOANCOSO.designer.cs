@@ -23,7 +23,7 @@ namespace DACS.Models
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DOANCOSO")]
-	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
+	public partial class DOANCOSODataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -62,31 +62,31 @@ namespace DACS.Models
     partial void DeletePHIEUDK_SV5T(PHIEUDK_SV5T instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
+		public DOANCOSODataContext() : 
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString2"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection) : 
+		public DOANCOSODataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
+		public DOANCOSODataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DOANCOSODataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DOANCOSODataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
