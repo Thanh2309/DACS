@@ -10,17 +10,6 @@
         });
     }
 
-    //layDaoDuc2();
-    //function layDaoDuc2() {
-    //    $.ajax({
-    //        url: 'lay_dao_duc2',
-    //        method: 'POST',
-    //        success: function (data) {
-    //            $("#dd2_title").html(data);
-    //        }
-    //    });
-    //}
-
     layHocTap();
     function layHocTap() {
         $.ajax({
@@ -201,7 +190,28 @@
             }
         });
     }
-    $('body').delegate("button#XacNhanDanhGia", 'click', function () {
-        console.log("ssss");
+
+    $('body').delegate("#btn_submit", 'click', function () {
+        var selected = new Array();
+        //lấy toàn bộ checkbox chứa chuỗi "_SV" và gán vào array
+        $("input:checkbox[id*=_SV]").each(function () {
+            selected.push($(this).is(":checked") ? true : false);
+        });
+
+        $.ajax({
+            url: 'submit_checkbox',
+            method: 'POST',
+            data:{'lst_checkbox':selected},
+            success: function (data) {
+                alert(data);
+            }
+        });
+
+        //for (var i = 0; i < selected.length; i++) {
+        //    console.log(selected[i] ? true : false);
+        //}
+
+        //console.log($(this).is(":checked")?true:false);
+        //console.log(($('#HN_GiaoLuuQT_SV:checked').length == 0)?false:true);
     });
 });

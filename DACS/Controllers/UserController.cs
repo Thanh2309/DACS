@@ -933,9 +933,28 @@ namespace DACS.Controllers
         }
 
         //thay doi checkbox
-        public string thaydoi_checkbox(string chkbox_id)
+        public string submit_checkbox(List<bool> lst_checkbox)
         {
-            return "đá";
+            KQDANHGIA_ACCOUNT kq = data.KQDANHGIA_ACCOUNTs.SingleOrDefault(t => t.USERNAME == Session["TaikhoanUsername"].ToString() && t.MaNguoiDanhGia == "sv");
+            if (kq == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+
+            kq.DD1 = lst_checkbox[0];
+            kq.HT1 = lst_checkbox[1];
+            kq.TL1 = lst_checkbox[2];
+            kq.TL2 = lst_checkbox[3];
+            kq.TN1 = lst_checkbox[4];
+            kq.TN2 = lst_checkbox[5];
+            kq.HN1 = lst_checkbox[6];
+            kq.HN2 = lst_checkbox[7];
+            kq.HN3 = lst_checkbox[8];
+
+            UpdateModel(kq);
+            data.SubmitChanges();
+            return "Sửa KQ thành công";
         }
     }
 }
