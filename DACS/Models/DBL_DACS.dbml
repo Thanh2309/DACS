@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DOANCOSO" Class="DOANCOSODataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=TUANMF\SQLEXPRESS;Initial Catalog=DOANCOSO;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DOANCOSOConnectionString2" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DOANCOSO" Class="DBL_DACSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LUUSEAN\SQLEXPRESS;Initial Catalog=DOANCOSO;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DOANCOSOConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ACCOUNT" Member="ACCOUNTs">
     <Type Name="ACCOUNT">
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -14,7 +14,7 @@
   </Table>
   <Table Name="dbo.TIEUCHI_SV5T" Member="TIEUCHI_SV5Ts">
     <Type Name="TIEUCHI_SV5T">
-      <Column Name="MATC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATC" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENTC" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TIEUCHI_SV5T_CHITIET_TC" Member="CHITIET_TCs" ThisKey="MATC" OtherKey="MATC" Type="CHITIET_TC" />
@@ -22,7 +22,7 @@
   </Table>
   <Table Name="dbo.CAP_SV5T" Member="CAP_SV5Ts">
     <Type Name="CAP_SV5T">
-      <Column Name="MACAP" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MACAP" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="TENCAP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="SOLUONGDK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="CAP_SV5T_CHITIET_TC" Member="CHITIET_TCs" ThisKey="MACAP" OtherKey="MACAP" Type="CHITIET_TC" />
@@ -31,13 +31,15 @@
   </Table>
   <Table Name="dbo.CHITIET_TC" Member="CHITIET_TCs">
     <Type Name="CHITIET_TC">
-      <Column Name="MATC" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MACAP" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MATC" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MACAP" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="NOIDUNG_TC1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="NGAYCHINHSUA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="NOIDUNG_TC2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="NOIDUNG_TC3" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="NOIDUNGTC_4" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NOIDUNG_TC4" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NOIDUNG_TC5" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NOIDUNG_TC6" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NGAYCHINHSUA" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="CAP_SV5T_CHITIET_TC" Member="CAP_SV5T" ThisKey="MACAP" OtherKey="MACAP" Type="CAP_SV5T" IsForeignKey="true" />
       <Association Name="TIEUCHI_SV5T_CHITIET_TC" Member="TIEUCHI_SV5T" ThisKey="MATC" OtherKey="MATC" Type="TIEUCHI_SV5T" IsForeignKey="true" />
     </Type>
@@ -53,16 +55,18 @@
   </Table>
   <Table Name="dbo.KQDANHGIA_ACCOUNT" Member="KQDANHGIA_ACCOUNTs">
     <Type Name="KQDANHGIA_ACCOUNT">
-      <Column Name="DIEMRL" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="DIEMHOCTAP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TEST_THELUC" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TN_5NGAYTN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TN_3CHIENDICHLON" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="HN_NGOAINGU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="HN_KYNANG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="UT_KETNAPDANG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="UT_HIENMAU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="UT_BIEUDUONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DD1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DD2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HN1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HN2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HN3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HN4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HT1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TL1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TL2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TL3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TN1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TN2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaNguoiDanhGia" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="ACCOUNT_KQDANHGIA_ACCOUNT" Member="ACCOUNT" ThisKey="USERNAME" OtherKey="USERNAME" Type="ACCOUNT" IsForeignKey="true" />
@@ -126,7 +130,7 @@
       <Column Name="UT_HIENMAU" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="UT_BIEUDUONG_KHENTHUONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="[KHOKHAN-KIENNGHI]" Member="KHOKHAN_KIENNGHI" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="MACAP" Type="System.String" DbType="Char(5) NOT NULL" CanBeNull="false" />
+      <Column Name="MACAP" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
       <Column Name="USERNAME" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Association Name="CAP_SV5T_PHIEUDK_SV5T" Member="CAP_SV5T" ThisKey="MACAP" OtherKey="MACAP" Type="CAP_SV5T" IsForeignKey="true" />
       <Association Name="ACCOUNT_PHIEUDK_SV5T" Member="ACCOUNT" ThisKey="USERNAME" OtherKey="USERNAME" Type="ACCOUNT" IsForeignKey="true" />

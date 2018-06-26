@@ -30,12 +30,13 @@
                 <div class="col-md-12 mt-3 ">
                     <div class="input-group ">
                         <div class="input-group-prepend">
-                            <span class="input-group-text form-control">
+                            <span class="input-group-text">
                                 <i class="fa fa-user"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control" name="username" placeholder="Nhập Mã Số Sinh Viên">
-                   
+                        @Html.TextBox("username")
+                        @ViewData["Loi1"]
+                        @*<input type="text" class="form-control" placeholder="Nhập Mã Số Sinh Viên">*@
                     </div>
                 </div>
                 <div class="col-md-12 mt-3 ">
@@ -44,12 +45,13 @@
                 <div class="col-md-12 mt-3 ">
                     <div class="input-group ">
                         <div class="input-group-prepend">
-                            <span class="input-group-text form-control">
+                            <span class="input-group-text">
                                 <i class="fa fa-lock"></i>
                             </span>
                         </div>
-                        <input type="password" name="Password" class="form-control" placeholder="Nhập Mật Khẩu">
-                        
+                        @Html.Password("Password")
+                        @ViewData["Loi2"]
+                        @*<input type="password" class="form-control" placeholder="Nhập Mật Khẩu">*@
                     </div>
                 </div>
                 <div class="col-md-12 mt-3 mb-3">

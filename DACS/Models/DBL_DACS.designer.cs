@@ -23,7 +23,7 @@ namespace DACS.Models
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DOANCOSO")]
-	public partial class DOANCOSODataContext : System.Data.Linq.DataContext
+	public partial class DBL_DACSDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -62,31 +62,31 @@ namespace DACS.Models
     partial void DeletePHIEUDK_SV5T(PHIEUDK_SV5T instance);
     #endregion
 		
-		public DOANCOSODataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString2"].ConnectionString, mappingSource)
+		public DBL_DACSDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DOANCOSOConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DOANCOSODataContext(string connection) : 
+		public DBL_DACSDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DOANCOSODataContext(System.Data.IDbConnection connection) : 
+		public DBL_DACSDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DOANCOSODataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DBL_DACSDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DOANCOSODataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public DBL_DACSDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -460,7 +460,7 @@ namespace DACS.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATC", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATC", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MATC
 		{
 			get
@@ -601,7 +601,7 @@ namespace DACS.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACAP", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACAP", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MACAP
 		{
 			get
@@ -744,13 +744,17 @@ namespace DACS.Models
 		
 		private string _NOIDUNG_TC1;
 		
-		private System.Nullable<System.DateTime> _NGAYCHINHSUA;
-		
 		private string _NOIDUNG_TC2;
 		
 		private string _NOIDUNG_TC3;
 		
-		private string _NOIDUNGTC_4;
+		private string _NOIDUNG_TC4;
+		
+		private string _NOIDUNG_TC5;
+		
+		private string _NOIDUNG_TC6;
+		
+		private System.Nullable<System.DateTime> _NGAYCHINHSUA;
 		
 		private EntityRef<CAP_SV5T> _CAP_SV5T;
 		
@@ -766,14 +770,18 @@ namespace DACS.Models
     partial void OnMACAPChanged();
     partial void OnNOIDUNG_TC1Changing(string value);
     partial void OnNOIDUNG_TC1Changed();
-    partial void OnNGAYCHINHSUAChanging(System.Nullable<System.DateTime> value);
-    partial void OnNGAYCHINHSUAChanged();
     partial void OnNOIDUNG_TC2Changing(string value);
     partial void OnNOIDUNG_TC2Changed();
     partial void OnNOIDUNG_TC3Changing(string value);
     partial void OnNOIDUNG_TC3Changed();
-    partial void OnNOIDUNGTC_4Changing(string value);
-    partial void OnNOIDUNGTC_4Changed();
+    partial void OnNOIDUNG_TC4Changing(string value);
+    partial void OnNOIDUNG_TC4Changed();
+    partial void OnNOIDUNG_TC5Changing(string value);
+    partial void OnNOIDUNG_TC5Changed();
+    partial void OnNOIDUNG_TC6Changing(string value);
+    partial void OnNOIDUNG_TC6Changed();
+    partial void OnNGAYCHINHSUAChanging(System.Nullable<System.DateTime> value);
+    partial void OnNGAYCHINHSUAChanged();
     #endregion
 		
 		public CHITIET_TC()
@@ -783,7 +791,7 @@ namespace DACS.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATC", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MATC", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MATC
 		{
 			get
@@ -807,7 +815,7 @@ namespace DACS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACAP", DbType="Char(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACAP", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
 		public string MACAP
 		{
 			get
@@ -847,26 +855,6 @@ namespace DACS.Models
 					this._NOIDUNG_TC1 = value;
 					this.SendPropertyChanged("NOIDUNG_TC1");
 					this.OnNOIDUNG_TC1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYCHINHSUA", DbType="DateTime")]
-		public System.Nullable<System.DateTime> NGAYCHINHSUA
-		{
-			get
-			{
-				return this._NGAYCHINHSUA;
-			}
-			set
-			{
-				if ((this._NGAYCHINHSUA != value))
-				{
-					this.OnNGAYCHINHSUAChanging(value);
-					this.SendPropertyChanging();
-					this._NGAYCHINHSUA = value;
-					this.SendPropertyChanged("NGAYCHINHSUA");
-					this.OnNGAYCHINHSUAChanged();
 				}
 			}
 		}
@@ -911,22 +899,82 @@ namespace DACS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOIDUNGTC_4", DbType="NVarChar(500)")]
-		public string NOIDUNGTC_4
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOIDUNG_TC4", DbType="NVarChar(500)")]
+		public string NOIDUNG_TC4
 		{
 			get
 			{
-				return this._NOIDUNGTC_4;
+				return this._NOIDUNG_TC4;
 			}
 			set
 			{
-				if ((this._NOIDUNGTC_4 != value))
+				if ((this._NOIDUNG_TC4 != value))
 				{
-					this.OnNOIDUNGTC_4Changing(value);
+					this.OnNOIDUNG_TC4Changing(value);
 					this.SendPropertyChanging();
-					this._NOIDUNGTC_4 = value;
-					this.SendPropertyChanged("NOIDUNGTC_4");
-					this.OnNOIDUNGTC_4Changed();
+					this._NOIDUNG_TC4 = value;
+					this.SendPropertyChanged("NOIDUNG_TC4");
+					this.OnNOIDUNG_TC4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOIDUNG_TC5", DbType="NVarChar(500)")]
+		public string NOIDUNG_TC5
+		{
+			get
+			{
+				return this._NOIDUNG_TC5;
+			}
+			set
+			{
+				if ((this._NOIDUNG_TC5 != value))
+				{
+					this.OnNOIDUNG_TC5Changing(value);
+					this.SendPropertyChanging();
+					this._NOIDUNG_TC5 = value;
+					this.SendPropertyChanged("NOIDUNG_TC5");
+					this.OnNOIDUNG_TC5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOIDUNG_TC6", DbType="NVarChar(500)")]
+		public string NOIDUNG_TC6
+		{
+			get
+			{
+				return this._NOIDUNG_TC6;
+			}
+			set
+			{
+				if ((this._NOIDUNG_TC6 != value))
+				{
+					this.OnNOIDUNG_TC6Changing(value);
+					this.SendPropertyChanging();
+					this._NOIDUNG_TC6 = value;
+					this.SendPropertyChanged("NOIDUNG_TC6");
+					this.OnNOIDUNG_TC6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYCHINHSUA", DbType="DateTime")]
+		public System.Nullable<System.DateTime> NGAYCHINHSUA
+		{
+			get
+			{
+				return this._NGAYCHINHSUA;
+			}
+			set
+			{
+				if ((this._NGAYCHINHSUA != value))
+				{
+					this.OnNGAYCHINHSUAChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYCHINHSUA = value;
+					this.SendPropertyChanged("NGAYCHINHSUA");
+					this.OnNGAYCHINHSUAChanged();
 				}
 			}
 		}
@@ -1192,25 +1240,29 @@ namespace DACS.Models
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<bool> _DIEMRL;
+		private System.Nullable<bool> _DD1;
 		
-		private System.Nullable<bool> _DIEMHOCTAP;
+		private System.Nullable<bool> _DD2;
 		
-		private System.Nullable<bool> _TEST_THELUC;
+		private System.Nullable<bool> _HN1;
 		
-		private System.Nullable<bool> _TN_5NGAYTN;
+		private System.Nullable<bool> _HN2;
 		
-		private System.Nullable<bool> _TN_3CHIENDICHLON;
+		private System.Nullable<bool> _HN3;
 		
-		private System.Nullable<bool> _HN_NGOAINGU;
+		private System.Nullable<bool> _HN4;
 		
-		private System.Nullable<bool> _HN_KYNANG;
+		private System.Nullable<bool> _HT1;
 		
-		private System.Nullable<bool> _UT_KETNAPDANG;
+		private System.Nullable<bool> _TL1;
 		
-		private System.Nullable<bool> _UT_HIENMAU;
+		private System.Nullable<bool> _TL2;
 		
-		private System.Nullable<bool> _UT_BIEUDUONG;
+		private System.Nullable<bool> _TL3;
+		
+		private System.Nullable<bool> _TN1;
+		
+		private System.Nullable<bool> _TN2;
 		
 		private string _USERNAME;
 		
@@ -1224,26 +1276,30 @@ namespace DACS.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDIEMRLChanging(System.Nullable<bool> value);
-    partial void OnDIEMRLChanged();
-    partial void OnDIEMHOCTAPChanging(System.Nullable<bool> value);
-    partial void OnDIEMHOCTAPChanged();
-    partial void OnTEST_THELUCChanging(System.Nullable<bool> value);
-    partial void OnTEST_THELUCChanged();
-    partial void OnTN_5NGAYTNChanging(System.Nullable<bool> value);
-    partial void OnTN_5NGAYTNChanged();
-    partial void OnTN_3CHIENDICHLONChanging(System.Nullable<bool> value);
-    partial void OnTN_3CHIENDICHLONChanged();
-    partial void OnHN_NGOAINGUChanging(System.Nullable<bool> value);
-    partial void OnHN_NGOAINGUChanged();
-    partial void OnHN_KYNANGChanging(System.Nullable<bool> value);
-    partial void OnHN_KYNANGChanged();
-    partial void OnUT_KETNAPDANGChanging(System.Nullable<bool> value);
-    partial void OnUT_KETNAPDANGChanged();
-    partial void OnUT_HIENMAUChanging(System.Nullable<bool> value);
-    partial void OnUT_HIENMAUChanged();
-    partial void OnUT_BIEUDUONGChanging(System.Nullable<bool> value);
-    partial void OnUT_BIEUDUONGChanged();
+    partial void OnDD1Changing(System.Nullable<bool> value);
+    partial void OnDD1Changed();
+    partial void OnDD2Changing(System.Nullable<bool> value);
+    partial void OnDD2Changed();
+    partial void OnHN1Changing(System.Nullable<bool> value);
+    partial void OnHN1Changed();
+    partial void OnHN2Changing(System.Nullable<bool> value);
+    partial void OnHN2Changed();
+    partial void OnHN3Changing(System.Nullable<bool> value);
+    partial void OnHN3Changed();
+    partial void OnHN4Changing(System.Nullable<bool> value);
+    partial void OnHN4Changed();
+    partial void OnHT1Changing(System.Nullable<bool> value);
+    partial void OnHT1Changed();
+    partial void OnTL1Changing(System.Nullable<bool> value);
+    partial void OnTL1Changed();
+    partial void OnTL2Changing(System.Nullable<bool> value);
+    partial void OnTL2Changed();
+    partial void OnTL3Changing(System.Nullable<bool> value);
+    partial void OnTL3Changed();
+    partial void OnTN1Changing(System.Nullable<bool> value);
+    partial void OnTN1Changed();
+    partial void OnTN2Changing(System.Nullable<bool> value);
+    partial void OnTN2Changed();
     partial void OnUSERNAMEChanging(string value);
     partial void OnUSERNAMEChanged();
     partial void OnMaNguoiDanhGiaChanging(string value);
@@ -1257,202 +1313,242 @@ namespace DACS.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMRL", DbType="Bit")]
-		public System.Nullable<bool> DIEMRL
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DD1", DbType="Bit")]
+		public System.Nullable<bool> DD1
 		{
 			get
 			{
-				return this._DIEMRL;
+				return this._DD1;
 			}
 			set
 			{
-				if ((this._DIEMRL != value))
+				if ((this._DD1 != value))
 				{
-					this.OnDIEMRLChanging(value);
+					this.OnDD1Changing(value);
 					this.SendPropertyChanging();
-					this._DIEMRL = value;
-					this.SendPropertyChanged("DIEMRL");
-					this.OnDIEMRLChanged();
+					this._DD1 = value;
+					this.SendPropertyChanged("DD1");
+					this.OnDD1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DIEMHOCTAP", DbType="Bit")]
-		public System.Nullable<bool> DIEMHOCTAP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DD2", DbType="Bit")]
+		public System.Nullable<bool> DD2
 		{
 			get
 			{
-				return this._DIEMHOCTAP;
+				return this._DD2;
 			}
 			set
 			{
-				if ((this._DIEMHOCTAP != value))
+				if ((this._DD2 != value))
 				{
-					this.OnDIEMHOCTAPChanging(value);
+					this.OnDD2Changing(value);
 					this.SendPropertyChanging();
-					this._DIEMHOCTAP = value;
-					this.SendPropertyChanged("DIEMHOCTAP");
-					this.OnDIEMHOCTAPChanged();
+					this._DD2 = value;
+					this.SendPropertyChanged("DD2");
+					this.OnDD2Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TEST_THELUC", DbType="Bit")]
-		public System.Nullable<bool> TEST_THELUC
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HN1", DbType="Bit")]
+		public System.Nullable<bool> HN1
 		{
 			get
 			{
-				return this._TEST_THELUC;
+				return this._HN1;
 			}
 			set
 			{
-				if ((this._TEST_THELUC != value))
+				if ((this._HN1 != value))
 				{
-					this.OnTEST_THELUCChanging(value);
+					this.OnHN1Changing(value);
 					this.SendPropertyChanging();
-					this._TEST_THELUC = value;
-					this.SendPropertyChanged("TEST_THELUC");
-					this.OnTEST_THELUCChanged();
+					this._HN1 = value;
+					this.SendPropertyChanged("HN1");
+					this.OnHN1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TN_5NGAYTN", DbType="Bit")]
-		public System.Nullable<bool> TN_5NGAYTN
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HN2", DbType="Bit")]
+		public System.Nullable<bool> HN2
 		{
 			get
 			{
-				return this._TN_5NGAYTN;
+				return this._HN2;
 			}
 			set
 			{
-				if ((this._TN_5NGAYTN != value))
+				if ((this._HN2 != value))
 				{
-					this.OnTN_5NGAYTNChanging(value);
+					this.OnHN2Changing(value);
 					this.SendPropertyChanging();
-					this._TN_5NGAYTN = value;
-					this.SendPropertyChanged("TN_5NGAYTN");
-					this.OnTN_5NGAYTNChanged();
+					this._HN2 = value;
+					this.SendPropertyChanged("HN2");
+					this.OnHN2Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TN_3CHIENDICHLON", DbType="Bit")]
-		public System.Nullable<bool> TN_3CHIENDICHLON
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HN3", DbType="Bit")]
+		public System.Nullable<bool> HN3
 		{
 			get
 			{
-				return this._TN_3CHIENDICHLON;
+				return this._HN3;
 			}
 			set
 			{
-				if ((this._TN_3CHIENDICHLON != value))
+				if ((this._HN3 != value))
 				{
-					this.OnTN_3CHIENDICHLONChanging(value);
+					this.OnHN3Changing(value);
 					this.SendPropertyChanging();
-					this._TN_3CHIENDICHLON = value;
-					this.SendPropertyChanged("TN_3CHIENDICHLON");
-					this.OnTN_3CHIENDICHLONChanged();
+					this._HN3 = value;
+					this.SendPropertyChanged("HN3");
+					this.OnHN3Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HN_NGOAINGU", DbType="Bit")]
-		public System.Nullable<bool> HN_NGOAINGU
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HN4", DbType="Bit")]
+		public System.Nullable<bool> HN4
 		{
 			get
 			{
-				return this._HN_NGOAINGU;
+				return this._HN4;
 			}
 			set
 			{
-				if ((this._HN_NGOAINGU != value))
+				if ((this._HN4 != value))
 				{
-					this.OnHN_NGOAINGUChanging(value);
+					this.OnHN4Changing(value);
 					this.SendPropertyChanging();
-					this._HN_NGOAINGU = value;
-					this.SendPropertyChanged("HN_NGOAINGU");
-					this.OnHN_NGOAINGUChanged();
+					this._HN4 = value;
+					this.SendPropertyChanged("HN4");
+					this.OnHN4Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HN_KYNANG", DbType="Bit")]
-		public System.Nullable<bool> HN_KYNANG
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HT1", DbType="Bit")]
+		public System.Nullable<bool> HT1
 		{
 			get
 			{
-				return this._HN_KYNANG;
+				return this._HT1;
 			}
 			set
 			{
-				if ((this._HN_KYNANG != value))
+				if ((this._HT1 != value))
 				{
-					this.OnHN_KYNANGChanging(value);
+					this.OnHT1Changing(value);
 					this.SendPropertyChanging();
-					this._HN_KYNANG = value;
-					this.SendPropertyChanged("HN_KYNANG");
-					this.OnHN_KYNANGChanged();
+					this._HT1 = value;
+					this.SendPropertyChanged("HT1");
+					this.OnHT1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UT_KETNAPDANG", DbType="Bit")]
-		public System.Nullable<bool> UT_KETNAPDANG
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TL1", DbType="Bit")]
+		public System.Nullable<bool> TL1
 		{
 			get
 			{
-				return this._UT_KETNAPDANG;
+				return this._TL1;
 			}
 			set
 			{
-				if ((this._UT_KETNAPDANG != value))
+				if ((this._TL1 != value))
 				{
-					this.OnUT_KETNAPDANGChanging(value);
+					this.OnTL1Changing(value);
 					this.SendPropertyChanging();
-					this._UT_KETNAPDANG = value;
-					this.SendPropertyChanged("UT_KETNAPDANG");
-					this.OnUT_KETNAPDANGChanged();
+					this._TL1 = value;
+					this.SendPropertyChanged("TL1");
+					this.OnTL1Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UT_HIENMAU", DbType="Bit")]
-		public System.Nullable<bool> UT_HIENMAU
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TL2", DbType="Bit")]
+		public System.Nullable<bool> TL2
 		{
 			get
 			{
-				return this._UT_HIENMAU;
+				return this._TL2;
 			}
 			set
 			{
-				if ((this._UT_HIENMAU != value))
+				if ((this._TL2 != value))
 				{
-					this.OnUT_HIENMAUChanging(value);
+					this.OnTL2Changing(value);
 					this.SendPropertyChanging();
-					this._UT_HIENMAU = value;
-					this.SendPropertyChanged("UT_HIENMAU");
-					this.OnUT_HIENMAUChanged();
+					this._TL2 = value;
+					this.SendPropertyChanged("TL2");
+					this.OnTL2Changed();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UT_BIEUDUONG", DbType="Bit")]
-		public System.Nullable<bool> UT_BIEUDUONG
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TL3", DbType="Bit")]
+		public System.Nullable<bool> TL3
 		{
 			get
 			{
-				return this._UT_BIEUDUONG;
+				return this._TL3;
 			}
 			set
 			{
-				if ((this._UT_BIEUDUONG != value))
+				if ((this._TL3 != value))
 				{
-					this.OnUT_BIEUDUONGChanging(value);
+					this.OnTL3Changing(value);
 					this.SendPropertyChanging();
-					this._UT_BIEUDUONG = value;
-					this.SendPropertyChanged("UT_BIEUDUONG");
-					this.OnUT_BIEUDUONGChanged();
+					this._TL3 = value;
+					this.SendPropertyChanged("TL3");
+					this.OnTL3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TN1", DbType="Bit")]
+		public System.Nullable<bool> TN1
+		{
+			get
+			{
+				return this._TN1;
+			}
+			set
+			{
+				if ((this._TN1 != value))
+				{
+					this.OnTN1Changing(value);
+					this.SendPropertyChanging();
+					this._TN1 = value;
+					this.SendPropertyChanged("TN1");
+					this.OnTN1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TN2", DbType="Bit")]
+		public System.Nullable<bool> TN2
+		{
+			get
+			{
+				return this._TN2;
+			}
+			set
+			{
+				if ((this._TN2 != value))
+				{
+					this.OnTN2Changing(value);
+					this.SendPropertyChanging();
+					this._TN2 = value;
+					this.SendPropertyChanged("TN2");
+					this.OnTN2Changed();
 				}
 			}
 		}
@@ -2813,7 +2909,7 @@ namespace DACS.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACAP", DbType="Char(5) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MACAP", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
 		public string MACAP
 		{
 			get

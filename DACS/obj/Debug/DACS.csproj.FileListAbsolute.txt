@@ -737,3 +737,4 @@ C:\Users\cus\Documents\DACS\DACS\bin\Microsoft.Owin.Security.MicrosoftAccount.xm
 C:\Users\cus\Documents\DACS\DACS\obj\Debug\DACS.csprojResolveAssemblyReference.cache
 C:\Users\cus\Documents\DACS\DACS\obj\Debug\DACS.dll
 C:\Users\cus\Documents\DACS\DACS\obj\Debug\DACS.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\DACS\DACS\obj\Debug\DACS.csprojResolveAssemblyReference.cache

@@ -206,10 +206,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\DOANCOSO.designer.cs">
+    <Compile Include="Models\DBL_DACS.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DOANCOSO.dbml</DependentUpon>
+      <DependentUpon>DBL_DACS.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -491,9 +491,9 @@
     <Content Include="Content\vendor\slick\slick-theme.scss" />
     <Content Include="Content\vendor\slick\slick.less" />
     <Content Include="Content\vendor\slick\slick.scss" />
-    <Content Include="Models\DOANCOSO.dbml">
+    <Content Include="Models\DBL_DACS.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DOANCOSO.designer.cs</LastGenOutput>
+      <LastGenOutput>DBL_DACS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -595,8 +595,8 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\DOANCOSO.dbml.layout">
-      <DependentUpon>DOANCOSO.dbml</DependentUpon>
+    <None Include="Models\DBL_DACS.dbml.layout">
+      <DependentUpon>DBL_DACS.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <PropertyGroup>
