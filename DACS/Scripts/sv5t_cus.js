@@ -10,16 +10,16 @@
         });
     }
 
-    layDaoDuc2();
-    function layDaoDuc2() {
-        $.ajax({
-            url: 'lay_dao_duc2',
-            method: 'POST',
-            success: function (data) {
-                $("#dd2_title").html(data);
-            }
-        });
-    }
+    //layDaoDuc2();
+    //function layDaoDuc2() {
+    //    $.ajax({
+    //        url: 'lay_dao_duc2',
+    //        method: 'POST',
+    //        success: function (data) {
+    //            $("#dd2_title").html(data);
+    //        }
+    //    });
+    //}
 
     layHocTap();
     function layHocTap() {
@@ -51,17 +51,6 @@
             method: 'POST',
             success: function (data) {
                 $("#tl2_title").html(data);
-            }
-        });
-    }
-
-    layTheLuc3();
-    function layTheLuc3() {
-        $.ajax({
-            url: 'lay_the_luc3',
-            method: 'POST',
-            success: function (data) {
-                $("#tl3_title").html(data);
             }
         });
     }
@@ -119,16 +108,6 @@
             }
         });
     }
-    layHoiNhap4();
-    function layHoiNhap4() {
-        $.ajax({
-            url: 'lay_tc_hoi_nhap4',
-            method: 'POST',
-            success: function (data) {
-                $("#hn4_title").html(data);
-            }
-        });
-    }
 
     layCheckBox_DRL();
     function layCheckBox_DRL() {
@@ -151,15 +130,78 @@
             }
         });
     }
+    layCheckBox_TLSVKhoe();
+    function layCheckBox_TLSVKhoe() {
+        $.ajax({
+            url: 'lay_check_box_TLSVKhoe',
+            method: 'POST',
+            success: function (data) {
+                $("#tl1_title").after(data);
+            }
+        });
+    }
+    layCheckBox_TLTDTT();
+    function layCheckBox_TLTDTT() {
+        $.ajax({
+            url: 'lay_check_box_TLTDTT',
+            method: 'POST',
+            success: function (data) {
+                $("#tl2_title").after(data);
+            }
+        });
+    }
 
-    //$('body').delegate("input[type='checkbox']", 'click', function () {
-    //    var chkbox_id = $(this).attr("id");
-    //    $.ajax({
-    //        url: 'thaydoi_checkbox?chkboxId='+chkbox_id,
-    //        method: 'POST',
-    //        success: function (data) {
-                
-    //        }
-    //    });
-    //});
+    layCheckBox_TNChienDich();
+    function layCheckBox_TNChienDich() {
+        $.ajax({
+            url: 'lay_check_box_TNChienDich',
+            method: 'POST',
+            success: function (data) {
+                $("#tn1_title").after(data);
+            }
+        });
+    }
+    layCheckBox_TN3ngay();
+    function layCheckBox_TN3ngay() {
+        $.ajax({
+            url: 'lay_check_box_TN3ngay',
+            method: 'POST',
+            success: function (data) {
+                $("#tn2_title").after(data);
+            }
+        });
+    }
+    layCheckBox_HN_AVB1();
+    function layCheckBox_HN_AVB1() {
+        $.ajax({
+            url: 'lay_check_box_HN_AVB1',
+            method: 'POST',
+            success: function (data) {
+                $("#hn1_title").after(data);
+            }
+        });
+    }
+    layCheckBox_HN_NNC();
+    function layCheckBox_HN_NNC() {
+        $.ajax({
+            url: 'lay_check_box_HN_NNC',
+            method: 'POST',
+            success: function (data) {
+                $("#hn2_title").after(data);
+            }
+        });
+    }
+    layCheckBox_HN_GiaoLuuQT();
+    function layCheckBox_HN_GiaoLuuQT() {
+        $.ajax({
+            url: 'lay_check_box_HN_GiaoLuuQT',
+            method: 'POST',
+            success: function (data) {
+                $("#hn3_title").after(data);
+            }
+        });
+    }
+    $('body').delegate("button#XacNhanDanhGia", 'click', function () {
+        console.log("ssss");
+    });
 });

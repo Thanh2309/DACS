@@ -18,7 +18,7 @@
     <div class="container">
         <!-- offset là mỗi bên khi thu nhỏ vô thì sẽ đẩy vào 3 cột cho cái hình nằm giữa
         mt-số là margin top, pt-số là padding top, tương tự cho ml,mr,mb,pr,pl,pb -->
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("Login","User",FormMethod.Post))
         {
             @Html.ValidationSummary(true)
             <div class="offset-md-3 col-md-6 mt-5 text-center" style="border:2px solid red ">
@@ -34,7 +34,7 @@
                                 <i class="fa fa-user"></i>
                             </span>
                         </div>
-                        @Html.TextBox("username")
+                        @Html.TextBox("username", null, new { @class="form-control"})
                         @ViewData["Loi1"]
                         @*<input type="text" class="form-control" placeholder="Nhập Mã Số Sinh Viên">*@
                     </div>
@@ -49,7 +49,7 @@
                                 <i class="fa fa-lock"></i>
                             </span>
                         </div>
-                        @Html.Password("Password")
+                        @Html.Password("Password", null, new { @class = "form-control" })
                         @ViewData["Loi2"]
                         @*<input type="password" class="form-control" placeholder="Nhập Mật Khẩu">*@
                     </div>
